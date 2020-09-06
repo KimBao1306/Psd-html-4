@@ -1,0 +1,61 @@
+/*primary colors*/
+$white-cl: #fff;
+$white-dark-cl: #f3f3f3;
+$white-dark2-cl: #e7e7e7;
+$black-cl: #000000;
+$black-light-cl: #393e46;
+
+$gray-cl: #898989;
+$blue-cl: #29aae1;
+$orange-cl: #f2600e;
+$border-cl: #ddd;
+
+/*global text color*/
+$text-cl: #1d1d1d;
+$text-gray-cl: #787878;
+
+/*global bg color*/
+$main-bg-cl: #fff;
+$gray-bg-cl: #f4f4f4;
+$black-bg-cl: #2e2e2e;
+
+// time transition
+$t: 0.6s;
+$t2: 0.4s;
+$cubic1: cubic-bezier(0.61, 0.22, 0.23, 1);
+$cubic2: cubic-bezier(0.63, -0.02, 0.24, 1.12);
+
+/*font families*/
+$font-stack: 'Roboto', sans-serif;
+
+/*headings typo*/
+$fz-text: 18px;
+$lh-text: 24px;
+
+$fz-text-small: 14px;
+$lh-text-small: 18px;
+
+/*GRID - media queries breakpoints*/
+$xxs-min: 340px;
+$xs-min: 768px;
+$sm-min: 992px;
+$md-min: 1200px;
+$lg-min: 1600px;
+$sc-mobile: 800px;
+
+$xxs-max: ($xxs-min - 1);
+$xs-max: ($xs-min - 1);
+$sm-max: ($sm-min - 1);
+$md-max: ($md-min - 1);
+$lg-max: ($lg-min - 1);
+
+$padding: 15px;
+
+// $container-max-width: 100%;
+
+/*BOXED LAYOUT*/
+// $boxed-layout-max-width-large: 1630px;
+// $boxed-layout-max-width: 1060px;
+
+$max-width: 1920px;
+$container-width: 960px;

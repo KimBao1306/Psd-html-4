@@ -1,0 +1,733 @@
+/** Banner */
+.banner {
+	position: relative;
+	height: 100vh;
+	padding-top: 16.75rem;
+	background-image: url('../imgs/banner.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	&__inner {
+		position: relative;
+		padding-top: 7rem;
+		.main-title {
+			margin-bottom: 2.5rem;
+			span {
+				color: $orange-cl;
+			}
+		}
+	}
+
+	&__search-box {
+		margin-bottom: 2.7rem;
+		padding: 2rem;
+		background: $white-cl;
+		@include br(10px);
+
+		.check-box {
+			margin-bottom: 2rem;
+
+			@include flex(row, flex-start, center);
+
+			div {
+				margin-right: 3rem;
+				@include flex(row, flex-start, center);
+			}
+			label {
+				font-size: 1.4rem;
+				cursor: pointer;
+			}
+			input {
+				position: relative;
+				width: 2rem;
+				height: 2rem;
+				margin: 0 1rem 0 0;
+				cursor: pointer;
+				border: 1px solid $gray-cl;
+				outline: none;
+				@include br(100%);
+				&::after {
+					content: '';
+					width: 1rem;
+					height: 1rem;
+					@include hidden;
+
+					background: $orange-cl;
+					@include br(100%);
+					@include mid;
+					@include transition(opacity $t2);
+				}
+				&:checked:after {
+					@include visible;
+				}
+			}
+		}
+
+		.form-control {
+			@include br(3px);
+			@include flex(row, space-between, stretch, wrap);
+			@include transition(opacity $t2);
+
+			& > * {
+				height: 5rem;
+			}
+
+			.select {
+				position: relative;
+				width: 15%;
+				margin-right: 0.7rem;
+				@include br(inherit);
+				select {
+					padding: 1rem;
+					width: 100%;
+					height: 100%;
+					font-size: 1.4rem;
+					border: none;
+					outline: none;
+					background-color: #e1e1e1;
+					cursor: pointer;
+					@include br(inherit);
+				}
+
+				&::before {
+					content: '\f107';
+					position: absolute;
+					font-weight: 900;
+					font-family: 'Font Awesome 5 Free';
+					top: 50%;
+					right: 1rem;
+					font-size: 1.5rem;
+					pointer-events: none;
+					@include transform(translateY(-50%));
+				}
+			}
+
+			input {
+				flex-grow: 1;
+				padding: 1.8rem;
+				margin-right: 0.7rem;
+				border: 1px solid $gray-cl;
+				outline: none;
+				background: $gray-bg-cl;
+				@include br(inherit);
+			}
+
+			.btn {
+				width: 15%;
+				@include br(inherit);
+
+				a {
+					height: 100%;
+					color: $white-cl;
+					@include mid-flex;
+				}
+			}
+
+			&.--show {
+				margin-bottom: 2rem;
+				@include visible;
+			}
+			&.--hidden {
+				@include hidden;
+				height: 0;
+			}
+		}
+	}
+
+	&__small-desc {
+		font-size: 1.4rem;
+		font-weight: 300;
+		line-height: 1.5rem;
+		clear: both;
+	}
+
+	&__list-brand {
+		max-width: 63rem;
+		height: 5rem;
+		margin: 0 auto;
+		@include flex(row, space-between, center, wrap);
+		& > div {
+			width: calc(25% - 0.75rem);
+			height: 100%;
+			@include mid-flex;
+			@include br(5px);
+		}
+		div:nth-of-type(1) {
+			background: #ff5502;
+		}
+		div:nth-child(2) {
+			background: #ff7813;
+		}
+		div:nth-child(3) {
+			background: #fb8734;
+		}
+		div:nth-child(4) {
+			background: #f12517;
+		}
+	}
+
+	&__list-strength {
+		position: absolute;
+		bottom: 4rem;
+		left: 50%;
+		width: 77.6%;
+		@include transform(translateX(-50%));
+		@include flex(row, space-between, center, wrap);
+		div {
+			width: calc(100% / 8);
+			@include flex(row, center, center);
+			img {
+				margin: 0;
+				margin-right: 1rem;
+			}
+			p {
+				text-align: center;
+				font-size: 1.4rem;
+				font-weight: 300;
+				color: $white-cl;
+				@include leading(14, 16.8);
+				@include tracking(25);
+			}
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba($color: $black-bg-cl, $alpha: 0.8);
+		z-index: 0;
+	}
+
+	@include desktop {
+		&__list-strength {
+			div {
+				width: calc(100% / 4);
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	@include tablet {
+		& {
+			padding-top: 10.8rem;
+		}
+	}
+
+	@include mobile {
+		&__inner {
+			padding-top: 3rem;
+			.main-title {
+				font-size: 2.8rem;
+			}
+		}
+		&__search-box {
+			.check-box {
+				flex-direction: column;
+				align-items: flex-start;
+				div:not(:last-child) {
+					margin-bottom: 1rem;
+				}
+			}
+
+			.form-control {
+				flex-direction: column;
+				align-items: flex-start;
+				& > * {
+					height: 5rem;
+				}
+
+				.select {
+					width: 100%;
+					margin-bottom: 1rem;
+					@include br(inherit);
+				}
+
+				input {
+					width: 100%;
+					margin: 0 0 1rem;
+				}
+
+				.btn {
+					width: 100%;
+					@include br(inherit);
+				}
+
+				&.--show {
+					// display: none;
+				}
+			}
+		}
+		&__list-brand {
+			& > div {
+				width: calc(50% - 0.75rem);
+				margin-bottom: 1rem;
+			}
+		}
+		&__list-strength {
+			display: none;
+		}
+	}
+
+	@media screen and (width: 1280px) and (max-height: 579px) {
+		&__list-brand {
+			display: none;
+		}
+	}
+}
+/** Banner - End */
+
+/** Procedure */
+.procedure {
+	height: 40rem;
+	background-image: url('../imgs/quytrinh-bg.png');
+	background-size: cover;
+	background-position: center center;
+
+	.container {
+		position: relative;
+	}
+
+	&__list {
+		position: absolute;
+		top: 4.5rem;
+		left: 0;
+		padding: 0 1.5rem;
+		width: 100%;
+		z-index: 1;
+		@include flex(row, space-between, stretch, wrap);
+
+		li {
+			width: calc(100% / 6 - 2.5rem);
+			color: $white-cl;
+			font-size: 1.4rem;
+			font-weight: bold;
+			a {
+				margin-bottom: 2.6rem;
+			}
+			img {
+				background: #2e2e2e;
+			}
+			p {
+				min-height: 3rem;
+				text-align: center;
+				@include leading(14, 20);
+				@include tracking(25);
+			}
+		}
+	}
+	&__arrow {
+		position: absolute;
+		top: 6rem;
+		left: 0;
+		width: 100%;
+	}
+
+	@include tablet {
+		& {
+			// display: none;
+		}
+	}
+	@include mobile {
+		&__list {
+			// display: none;
+
+			top: 2rem;
+			li {
+				width: calc(100% / 3 - 2rem);
+				font-size: 1.2rem;
+				a,
+				p {
+					margin-bottom: 0.8rem;
+				}
+			}
+		}
+		&__arrow {
+			display: none;
+		}
+	}
+}
+/** Procedure - End */
+
+/** Tools  */
+.heading {
+	padding: 0 1.5rem;
+	.main-title {
+		margin-bottom: 1rem;
+		& + img {
+			margin-bottom: 1.6rem;
+		}
+	}
+}
+
+.tools {
+	// margin: 5rem 0;
+	&__desc {
+		margin-bottom: 5rem;
+		font-size: 1.6rem;
+		color: $gray-cl;
+		@include tracking(25);
+		@include leading(16, 20);
+	}
+	.container {
+		@include flex(row, flex-start);
+		& > div {
+			width: 50%;
+		}
+	}
+
+	&__right {
+		max-width: 37rem;
+		margin: 0 auto;
+		@include flex(column, space-evenly, center);
+		h3 {
+			color: $gray-cl;
+			font-size: 1.8rem;
+			font-weight: bold;
+			margin-bottom: 2.4rem;
+			text-align: center;
+			@include tracking(25);
+			@include leading(18, 24);
+		}
+		& > div {
+			width: 100%;
+		}
+	}
+
+	&__broswer {
+		@include flex(row, space-between, flex-start, wrap);
+		.btn {
+			width: calc(50% - 1rem);
+			a {
+				padding: 1.3rem;
+			}
+		}
+	}
+
+	@include tablet {
+		&,
+		&__desc {
+			margin-bottom: 3rem;
+		}
+	}
+
+	@include mobile {
+		.container {
+			flex-direction: column;
+			align-items: center;
+			& > div {
+				width: 100%;
+			}
+		}
+		&__right {
+			h3 {
+				margin-bottom: 1.4rem;
+			}
+			& > div:first-child {
+				margin-bottom: 2rem;
+			}
+		}
+		&__broswer {
+			flex-direction: column;
+			align-items: center;
+			.btn:first-child {
+				margin-bottom: 1rem;
+			}
+			.btn {
+				width: 100%;
+			}
+		}
+	}
+}
+/** Tools - End */
+
+/** Payment */
+.payment {
+	min-height: 45rem;
+	padding: 5.5rem 0;
+	background-image: url('../imgs/thanhtoan-bg.png');
+	background-size: cover;
+	background-position: center right;
+
+	width: 100%;
+
+	.container {
+		@include flex(row, space-between, stretch, wrap);
+		.payment__box {
+			width: calc(100% / 3 - 2rem);
+		}
+	}
+
+	&__box {
+		padding: 3rem 2rem;
+		background: $white-cl;
+		box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+		@include br(10px);
+		@include flex(row, flex-start, center);
+		img {
+			margin-right: 2.8rem;
+			margin-left: 0;
+		}
+		h3 {
+			font-size: 2rem;
+			font-weight: bold;
+			margin-bottom: 1rem;
+			@include tracking(25);
+			@include leading(18, 24);
+		}
+		p {
+			font-size: 1.4rem;
+			line-height: 1.5;
+			@include tracking(25);
+			&:nth-of-type(2),
+			&:nth-of-type(4) {
+				color: $orange-cl;
+				font-weight: bold;
+			}
+		}
+	}
+
+	@include tablet {
+		.container {
+			.payment__box {
+				width: calc(100% / 2 - 2rem);
+				margin-bottom: 2rem;
+				&:last-child {
+					margin-bottom: 0;
+					@include offset(3);
+				}
+			}
+		}
+	}
+
+	@include mobile {
+		.container {
+			.payment__box {
+				width: 100%;
+				&:last-child {
+					@include offset(0);
+				}
+			}
+		}
+	}
+}
+/** Payment - End */
+
+.services {
+	&__list {
+		@include flex(row, center, stretch, wrap);
+	}
+	&__box {
+		// min-height: 15rem;\
+		position: relative;
+
+		padding: 2rem;
+		width: calc(100% / 6);
+		cursor: pointer;
+		@include flex(column, flex-start, center);
+		@include transition(background $t);
+
+		img {
+			margin-top: auto;
+			margin-bottom: 1rem;
+			object-fit: cover;
+		}
+
+		p {
+			min-height: 5rem;
+			font-size: 1.4rem;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: bold;
+			color: $black-cl;
+		}
+		&:hover,
+		&.active {
+			background: $black-bg-cl;
+			p {
+				color: $white-cl;
+			}
+		}
+		&.active {
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				border-left: 1.5rem solid transparent;
+				border-right: 1.5rem solid transparent;
+				border-bottom: 1.5rem solid $orange-cl;
+				@include transform(translateX(-50%));
+			}
+		}
+	}
+	&__content-list {
+		position: relative;
+		padding: 6.6rem;
+
+		background-image: url('../imgs/services-bg.png');
+		background-position: center;
+		background-size: cover;
+
+		.content {
+			@include flex(row, space-between, stretch);
+			@include transition(opacity $t2);
+			& > * {
+				width: calc(100% / 2 - 5rem);
+			}
+
+			img {
+				margin-right: 0;
+				object-fit: contain;
+			}
+
+			.main-title {
+				text-transform: uppercase;
+				font-size: 1.8rem;
+				margin-bottom: 2rem;
+				line-height: 1.5;
+			}
+			p {
+				margin-bottom: 2rem;
+				color: $white-cl;
+				font-size: 1.4rem;
+				@include leading(14, 20);
+			}
+			.btn {
+				max-width: 14rem;
+				width: 100%;
+				a {
+					color: $white-cl;
+				}
+			}
+
+			&.--show {
+				@include visible;
+			}
+
+			&.--hidden {
+				height: 0;
+				@include hidden;
+			}
+		}
+	}
+	@include tablet {
+		&__content-list {
+			padding: 3.3rem;
+		}
+
+		&__box {
+			width: calc(100% / 3);
+		}
+	}
+	@include mobile {
+		.container {
+			padding: 0;
+		}
+		&__content-list {
+			padding: 3.3rem;
+		}
+		&__box {
+			width: calc(100% / 2);
+		}
+
+		&__content-list {
+			.content {
+				flex-direction: column-reverse;
+				& > * {
+					width: 100%;
+				}
+				img {
+					margin-bottom: 2rem;
+				}
+			}
+		}
+	}
+}
+
+.benefit {
+	padding: 7.8rem 0 8rem;
+	.container {
+		@include flex(row, space-between, stretch, wrap);
+		& > div {
+			width: calc(100% / 3 - 6.67rem);
+		}
+	}
+
+	&__left {
+		.benefit__box {
+			&-icon {
+				margin-left: auto;
+			}
+			text-align: right;
+		}
+	}
+
+	&__center {
+		@include mid-flex;
+	}
+
+	&__box {
+		width: 100%;
+		min-height: 15rem;
+		margin-bottom: 3rem;
+		&-icon {
+			width: 5rem;
+			height: 5rem;
+			background: $orange-cl;
+			@include br(100%);
+			@include mid-flex;
+		}
+		h3 {
+			font-size: 1.6rem;
+			font-weight: bold;
+			@include leading(16, 36);
+		}
+		p {
+			font-size: 1.4rem;
+			@include leading(14, 20);
+		}
+		a {
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: $orange-cl;
+			text-decoration: underline;
+			@include leading(12, 20);
+		}
+	}
+
+	@include tablet {
+		& {
+			// padding: 3rem 0;
+		}
+		.container {
+			& > div {
+				width: calc(100% / 2 - 2.5rem);
+			}
+		}
+		&__center {
+			display: none;
+		}
+	}
+	@include mobile {
+		.container {
+			& > div {
+				width: 100%;
+			}
+		}
+	}
+}
+
+// @include sc-break(600px) {
+// 	.find {
+// 		&__left {
+// 			margin-bottom: 0;
+// 		}
+// 		&__right {
+// 			display: none;
+// 		}
+// 	}
+// }

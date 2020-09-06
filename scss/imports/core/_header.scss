@@ -1,0 +1,661 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	margin: 0 auto;
+	max-height: 14rem;
+	z-index: 700;
+	/** Top */
+	&__top {
+		width: 100%;
+		height: 4rem;
+		padding: 0.8rem 2.2rem;
+		background: $black-bg-cl;
+		@include flex(row, space-between, center, wrap);
+		@include transition(opacity $t2);
+
+		& > ul {
+			height: 100%;
+			@include flex(row, center, center);
+			li {
+				margin: 0 1.3rem;
+			}
+
+			li,
+			a {
+				font-size: 1.2rem;
+				text-transform: capitalize;
+				color: $white-cl;
+				@include tracking(25);
+				i {
+					margin-right: 0.7rem;
+				}
+			}
+		}
+	}
+
+	&__info {
+		margin-right: auto;
+		@include flex(row, center, center);
+	}
+
+	&__social {
+		li {
+			width: 2.4rem;
+			height: 2.4rem;
+			margin: 0 0.8rem;
+			@include transition(transform $t2);
+			a {
+				display: block;
+			}
+			&:hover {
+				transform: translateY(-3px);
+			}
+		}
+	}
+
+	&__auth {
+		a {
+			@include transition(color $t2);
+			&:hover {
+				color: $orange-cl;
+			}
+		}
+	}
+
+	// User - Box
+	&__user-box {
+		//Acc-info
+		.acc-info {
+			&-btn {
+				display: inline-block;
+				white-space: nowrap;
+				@include text(1.3rem, $white-cl, inherit, bold, uppercase);
+				@include transition(color 0.2s);
+			}
+
+			&-btn .icon {
+				margin-right: 5px;
+				color: $white-cl;
+				@include transition(color 0.2s);
+			}
+
+			&:hover .acc-info-btn,
+			&:hover .acc-info-btn .icon {
+				color: $orange-cl;
+			}
+
+			&:hover .status-desktop {
+				display: block;
+			}
+		}
+
+		.status-desktop {
+			position: absolute;
+			top: 2.5rem;
+			right: 4rem;
+			display: none;
+
+			width: 300px;
+			z-index: 800;
+
+			@include text(1.3rem, $black-cl, inherit, 500);
+
+			.status-wrap {
+				position: relative;
+				left: 0;
+				top: 30px;
+				width: 30rem;
+				line-height: 3rem;
+				background-color: white;
+			}
+
+			.status__header {
+				position: relative;
+				height: 48px;
+				@include flex(row, center, center);
+
+				&::before {
+					content: '';
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: calc(100% + 23px);
+					background-repeat: no-repeat;
+					background-image: url(../imgs/status-header-bg.png);
+					background-position: center;
+					background-size: cover;
+					position: absolute;
+				}
+
+				h4 {
+					color: $white-cl;
+					font-size: 24px;
+					z-index: 1;
+				}
+			}
+
+			.status__body {
+				& > *:not(.links) {
+					padding: 10px 20px;
+				}
+
+				& > div:nth-child(odd) {
+					background-color: #f8f8f8;
+				}
+
+				& .level__info {
+					@include flex(row, space-between, center);
+
+					.rank {
+						font-weight: bold;
+					}
+				}
+
+				.level__process {
+					background: #ebebeb;
+					border-radius: 12px;
+					height: 20px;
+					width: 100%;
+					padding: 2px;
+					margin: 5px 0;
+					overflow: hidden;
+
+					span {
+						display: block;
+						height: 100%;
+						max-width: 100%;
+						border-radius: 9px;
+						background-color: $orange-cl;
+						background-image: -webkit-repeating-linear-gradient(
+							135deg,
+							transparent 0px,
+							transparent 7px,
+							rgba(0, 0, 0, 0.1) 7px,
+							rgba(0, 0, 0, 0.1) 9px
+						);
+						background-image: repeating-linear-gradient(
+							-45deg,
+							transparent 0px,
+							transparent 7px,
+							rgba(0, 0, 0, 0.1) 7px,
+							rgba(0, 0, 0, 0.1) 9px
+						);
+						background-size: 50px 50px;
+						background-position: 0 0;
+						overflow: hidden;
+						-webkit-animation: move 4s linear infinite;
+						animation: move 4s linear infinite;
+					}
+				}
+
+				.balance {
+					@include flex(row, space-between, flex-start);
+					&__number {
+						margin-left: 10px;
+						font-weight: bold;
+						& .vnd {
+							color: $orange-cl;
+						}
+					}
+				}
+
+				.links > a {
+					padding: 10px 20px;
+					display: block;
+					text-align: start;
+					color: $black-cl;
+				}
+
+				.links > a i {
+					float: right;
+					line-height: 2;
+					color: $orange-cl;
+				}
+
+				.links > a:hover {
+					color: $orange-cl;
+				}
+			}
+
+			.status__footer .ft-btn {
+				font-size: 13px;
+				display: block;
+				width: 100%;
+				padding: 10px 0;
+				border-radius: unset;
+				background-color: $orange-cl;
+				color: white;
+				text-align: center;
+			}
+		}
+
+		.status-mobile {
+			display: none;
+			position: fixed;
+			top: 0;
+			height: 100vh;
+			left: -250px;
+			padding: 20px 10px 10px 10px;
+			overflow-y: auto;
+			max-width: 250px;
+			width: 100%;
+			-webkit-box-shadow: -2px 0px 2px #00000045;
+			box-shadow: -2px 0px 2px #00000045;
+			z-index: 800;
+			background-color: #fff;
+			color: #000;
+			font-size: 13px;
+			font-weight: 500;
+			@include transition($t2);
+			&.open {
+				left: 0;
+			}
+
+			.username {
+				color: $orange-cl;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+				text-align: center;
+			}
+
+			.user-menu-logo {
+				margin-bottom: 15px;
+				display: block;
+				text-align: center;
+
+				img {
+					max-height: 50px;
+					margin: auto;
+				}
+			}
+
+			.user-info {
+				margin-bottom: 15px;
+				text-align: center;
+
+				.money {
+					color: $orange-cl;
+				}
+
+				.vip {
+					text-transform: uppercase;
+					color: $orange-cl;
+					font-weight: bold;
+				}
+			}
+
+			.nav-percent {
+				width: 100%;
+				min-height: 8px;
+				border-radius: 8px;
+				background-color: #e1e1e1;
+				position: relative;
+				margin-bottom: 15px;
+
+				&-ok {
+					position: absolute;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					background-color: $orange-cl;
+					border-radius: 8px;
+				}
+			}
+
+			.menu-in-profile {
+				list-style-type: none;
+				margin-bottom: 15px;
+				& > li:not(:last-child) {
+					border-bottom: 1px solid #595959;
+				}
+
+				& > li > a {
+					padding: 15px 0;
+					display: block;
+					text-align: left;
+					text-transform: uppercase;
+					color: $black-cl;
+				}
+
+				& > li > a > i {
+					margin-right: 10px;
+					color: $orange-cl;
+					font-size: 18px;
+					width: 20px;
+				}
+			}
+
+			.main-btn {
+				display: block;
+				margin: auto;
+				padding: 1.5rem;
+
+				width: 100%;
+
+				color: $white-cl;
+				text-align: center;
+				font-size: inherit;
+			}
+
+			@media screen and (max-width: 991px) {
+				& {
+					display: block;
+				}
+			}
+		}
+	}
+	//User Box - End
+	/** Top - End*/
+
+	/** Bottom*/
+	&__bottom {
+		width: 100%;
+		background: $white-cl;
+		@include transition(transform $t2);
+	}
+	&__bottom-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		padding: 1.3rem 0 4rem;
+		@include flex(row, space-between, center);
+		@include transition(padding $t2);
+	}
+	&__logo {
+		width: 100%;
+		@include flex(row, space-between, center);
+	}
+	&__browser {
+		@include flex(row, flex-start, center);
+		& div:first-child {
+			margin-right: 0.5rem;
+		}
+	}
+	&__list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: $orange-cl;
+		@include br(999px);
+		@include transform(translateY(-50%));
+
+		ul {
+			max-width: 80.4rem;
+			margin: 0 auto;
+			@include flex(row, space-between, center);
+
+			li {
+				width: calc(100% / 8);
+
+				&.active,
+				&:hover {
+					a {
+						color: $black-cl;
+					}
+				}
+
+				a {
+					display: inline-block;
+					padding: 2rem 0.6rem;
+					width: 100%;
+
+					font-size: 1.4rem;
+					text-align: center;
+					color: $white-cl;
+					border-bottom: 1px solid transparent;
+					@include transition(color $t2);
+				}
+
+				&.has-sub-menu {
+					position: relative;
+					.sub-menu {
+						position: absolute;
+						top: 100%;
+						left: 50%;
+						width: 15rem;
+
+						flex-direction: column;
+
+						background-color: $orange-cl;
+						box-shadow: 0 2px 12px rgba($color: #000000, $alpha: 0.3);
+
+						@include br(4px);
+						@include hidden;
+						@include transform(translateX(-50%));
+						@include transition(opacity 1s);
+						li {
+							width: 100%;
+						}
+						a {
+							width: 100%;
+							color: $white-cl;
+							&:hover {
+								color: $black-cl;
+							}
+						}
+					}
+
+					&:hover .sub-menu {
+						@include visible;
+						@include transition(opacity 1s);
+					}
+
+					&::after {
+						content: '\f107';
+						position: absolute;
+						font-weight: 900;
+						font-family: 'Font Awesome 5 Free';
+						top: 50%;
+						right: -0.3rem;
+						font-size: 1.5rem;
+						pointer-events: none;
+						color: $white-cl;
+						@include transform(translateY(-50%));
+						@include transition(color $t2);
+					}
+
+					&:hover {
+						&::after {
+							color: $black-cl;
+						}
+					}
+				}
+			}
+		}
+	}
+	/** Bottom - End*/
+
+	/** Header - Scroll*/
+	&.--scroll {
+		.header__top {
+			opacity: 0;
+		}
+		.header__bottom {
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+			@include transform(translateY(-4rem));
+		}
+	}
+	/** Header - Scroll - End*/
+
+	/** Header - Burger*/
+	&__burger {
+		position: relative;
+		width: 3rem;
+		height: 2rem;
+
+		display: none;
+		cursor: pointer;
+		span,
+		&::before,
+		&::after {
+			position: absolute;
+
+			width: 100%;
+			height: 0.2rem;
+			background: $orange-cl;
+
+			@include transition(
+				background-color $t2 $cubic2,
+				transform $t2 $cubic2,
+				opacity $t2 $cubic2
+			);
+		}
+
+		span {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			left: 0;
+		}
+
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+
+		&.--close {
+			// span,
+			// &::before,
+			// &::after {
+			// 	background: $white-cl;
+			// }
+
+			span {
+				opacity: 0;
+			}
+
+			&::before {
+				transform: translateY(9px) rotate(-40deg);
+			}
+			&::after {
+				transform: translateY(-9px) rotate(40deg);
+			}
+		}
+	}
+	/** Header - Burger - End*/
+
+	/** Overlay */
+	.overlay-mobile {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.4);
+		z-index: 700;
+		@include transform(translateX(-100%));
+		@include transition(0.2s);
+		&.--show {
+			@include transform(translateX(0));
+		}
+	}
+	/** Overlay - End */
+
+	/** Responsive */
+	@include desktop {
+		&__top {
+			ul {
+				li {
+					margin: 0 0.8rem 0 0;
+				}
+			}
+		}
+		&__social {
+			display: none !important;
+		}
+	}
+
+	@include tablet {
+		& {
+			// display: none;
+		}
+		&__top {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+		&__info,
+		&__browser {
+			display: none !important;
+		}
+		&__social,
+		&__burger {
+			display: flex !important;
+		}
+		&__bottom-inner {
+			padding-bottom: 1.3rem;
+		}
+		&__list {
+			position: fixed;
+			top: 0;
+			left: 0;
+
+			width: 25rem;
+			height: 100%;
+
+			z-index: 750;
+			@include br(0);
+			@include transform(translate(-250px, 0));
+			@include transition(transform $t2);
+
+			ul {
+				width: 100%;
+				flex-direction: column;
+				li {
+					padding: 0 1rem;
+					width: 100%;
+					a {
+						text-align: left;
+					}
+				}
+
+				li.has-sub-menu {
+					&::after {
+						top: 2.75rem;
+						right: 0.5rem;
+					}
+					.sub-menu {
+						position: static;
+
+						width: 100%;
+						background-color: transparent;
+						box-shadow: none;
+						@include transition(opacity 1s);
+						@include transform(translateX(0));
+						@include visible;
+						a {
+							padding: 1rem 0;
+						}
+					}
+					&.--open {
+						.sub-menu {
+							display: block;
+						}
+					}
+				}
+			}
+
+			&.--show {
+				transform: translateX(0);
+				@include transition(transform $t2);
+			}
+		}
+
+		&__user-box {
+			.acc-info:hover .status-desktop,
+			.acc-info:focus .status-desktop {
+				display: none;
+			}
+		}
+	}
+	/** Responsive - End*/
+}

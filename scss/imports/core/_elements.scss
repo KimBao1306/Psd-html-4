@@ -1,0 +1,148 @@
+//scss for component common
+a {
+	text-decoration: none;
+	display: block;
+	outline: none;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	image-rendering: auto;
+}
+
+.logo {
+	max-width: 17rem;
+}
+
+// .logo {
+// 	font-size: 2.4rem;
+// 	font-family: RbB;
+
+// 	@include leading(24, 20);
+// 	a {
+// 		color: $black-cl;
+// 	}
+// 	span {
+// 		color: $blue-cl;
+// 	}
+// }
+
+.btn {
+	// max-width: 14rem;
+	// max-height: 5rem;
+	@include br(5px);
+	@include transition(background-color $t2);
+
+	a {
+		display: inline-block;
+		padding: 0.6rem;
+		width: 100%;
+		font-size: 1.8rem;
+		font-weight: bold;
+		color: $black-cl;
+		text-align: center;
+		@include leading(18, 24);
+		@include tracking(25);
+		@include transition(color $t2);
+	}
+	i {
+		color: $orange-cl;
+		@include transition(color $t2);
+	}
+	&.--has-bd {
+		border: 2px solid $orange-cl;
+	}
+	&.--rounded {
+		@include br(999px);
+	}
+	&.--has-bg {
+		background-color: $orange-cl;
+	}
+	&.--hover:hover {
+		background: $orange-cl;
+		a {
+			color: $white-cl;
+		}
+		i {
+			color: $white-cl;
+		}
+	}
+	// &.--blue {
+	// 	background: $blue-cl;
+	// }
+	// &.--shadow {
+	// 	box-shadow: 0 3px 8px rgba($color: $black-cl, $alpha: 0.3);
+	// }
+}
+
+.main-title {
+	line-height: 1.2;
+	font-size: 3rem;
+
+	// &.--large {
+	// 	font-size: 4.8rem;
+	// }
+	// &.--medium {
+	// 	font-size: 2.4rem;
+	// }
+	// &.--small {
+	// 	font-size: 1.4rem;
+	// }
+	// &.--gray {
+	// 	color: $gray-cl;
+	// }
+	&.--white {
+		color: $white-cl;
+	}
+	&.--black {
+		color: $black-cl;
+	}
+	&.--thin {
+		font-weight: 300;
+	}
+	&.--bold {
+		font-weight: bold;
+	}
+	// &.--border-bt {
+	// 	position: relative;
+	// 	padding-bottom: 1.5rem;
+	// 	&::after {
+	// 		content: '';
+	// 		position: absolute;
+	// 		bottom: -0.2rem;
+	// 		left: 50%;
+	// 		transform: translateX(-50%);
+	// 		width: 7rem;
+	// 		height: 0.3rem;
+	// 		background: $blue-cl;
+	// 	}
+	// }
+}
+
+.scroll-btn {
+	width: 4rem;
+	height: 4rem;
+	background-color: #fff;
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	border-radius: 50%;
+	box-shadow: 0 0 5px #acacac;
+	z-index: 9999;
+	&.fas {
+		font-size: 1.6rem;
+	}
+}

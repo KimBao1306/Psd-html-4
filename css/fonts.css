@@ -1,0 +1,30 @@
+@font-face {
+	font-family: Rbm;
+	src: url('../fonts/Roboto-Medium.ttf');
+	font-display: fallback;
+}
+@font-face {
+	font-family: Rbr;
+	src: url('../fonts/Roboto-Regular.ttf');
+	font-display: fallback;
+}
+@font-face {
+	font-family: Rbb;
+	src: url('../fonts/Roboto-Bold.ttf');
+	font-display: fallback;
+}
+@font-face {
+	font-family: Opb;
+	src: url('../fonts/OpenSans-Bold.ttf');
+	font-display: fallback;
+}
+@font-face {
+	font-family: Opr;
+	src: url('../fonts/OpenSans-Regular.ttf');
+	font-display: fallback;
+}
+@font-face {
+	font-family: OpSb;
+	src: url('../fonts/OpenSans-SemiBold.ttf');
+	font-display: fallback;
+}

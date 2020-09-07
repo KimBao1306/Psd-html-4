@@ -86,6 +86,9 @@
 				display: inline;
 				margin-right: 1rem;
 			}
+			& > a {
+				display: inline-block;
+			}
 		}
 	}
 
@@ -103,6 +106,10 @@
 			padding: 1rem;
 			font-size: 1.3rem;
 			@include mid-flex;
+			@include transition(color $t2);
+			&:hover {
+				color: $orange-cl;
+			}
 		}
 	}
 

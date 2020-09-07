@@ -123,9 +123,56 @@ servicesBox.forEach((x) => {
 new WOW().init();
 
 //couter find
-jQuery(document).ready(function ($) {
-	$('.count').counterUp({
-		delay: 5,
-		time: 2000,
-	});
+// jQuery(document).ready(function ($) {
+// 	$('.count').counterUp({
+// 		delay: 5,
+// 		time: 2000,
+// 	});
+// });
+
+// function formatState(state) {
+// 	// if (!state.id) {
+// 	// 	return state.text;
+// 	// }
+// 	// var baseUrl = 'imgs/';
+// 	// var $state = $(
+// 	// 	'<span><img src="' +
+// 	// 		baseUrl +
+// 	// 		'/' +
+// 	// 		state.element.value.toLowerCase() +
+// 	// 		'.png" class="img-flag" /> ' +
+// 	// 		state.text +
+// 	// 		'</span>'
+// 	// );
+// 	// return $state;
+// 	console.log(state);
+// }
+
+// $('#select-img').select2({
+// 	templateResult: formatState,
+// 	templateSelection: formatState,
+// });
+
+function formatData(data) {
+	if (!data.id) {
+		return data.text.toUpperCase();
+	}
+
+	const img = $(data.element).attr('data-img');
+
+	if (!img) {
+		return data.text.toUpperCase();
+	} else {
+		const $result = $(`<span><img src="${img}"/></span>`);
+
+		return $result;
+	}
+}
+
+$('#select-img').select2({
+	templateResult: formatData,
+	templateSelection: formatData,
+	minimumResultsForSearch: -1,
+	width: '100%',
+	height: '100%',
 });

@@ -193,6 +193,7 @@
 				</div>
 			</header>
 			<!-- header - end -->
+			<!-- main -->
 			<main class="main">
 				<!-- banner -->
 				<div class="banner wow fadeIn" data-wow-delay=".5s">
@@ -228,27 +229,14 @@
 								</div>
 								<div class="form-control --show">
 									<div class="select">
-										<select>
+										<select id="select-img" style="height: 100%">
+											<option value="tb" data-img="imgs/taobao.png"></option>
+											<option value="1688" data-img="imgs/1688.png"></option>
 											<option
-												value="tb"
-												style="background-image: url('imgs/taobao.png')"
-											>
-												123
-											</option>
-											<option
-												value="tb"
-												style="background-image: url('imgs/1688.png')"
-											>
-												123
-											</option>
-											<option
-												value="tb"
-												style="background-image: url('imgs/alibaba.png')"
+												value="alibaba"
+												data-img="imgs/alibaba.png"
 											></option>
-											<option
-												value="tb"
-												style="background-image: url('imgs/tmall.png')"
-											></option>
+											<option value="tmall" data-img="imgs/tmall.png"></option>
 										</select>
 									</div>
 									<input
@@ -741,7 +729,7 @@
 				</div>
 				<!-- benefit - end -->
 			</main>
-
+			<!-- main - end -->
 			<!-- footer -->
 			<footer class="footer">
 				<div class="container">
@@ -810,8 +798,12 @@
 						<div class="footer__more">
 							<div>
 								<h3>tiện ích mở rộng</h3>
-								<img src="imgs/chrome.png" alt="chrome" />
-								<img src="imgs/coccoc.png" alt="coccoc" />
+								<a href="#">
+									<img src="imgs/chrome.png" alt="chrome" />
+								</a>
+								<a href="#">
+									<img src="imgs/coccoc.png" alt="coccoc" />
+								</a>
 							</div>
 							<div class="footer__social">
 								<h3>liên kết với chúng tôi</h3>
@@ -834,12 +826,38 @@
 			</footer>
 			<!-- footer -end -->
 
+			<div class="fixed-icon">
+				<a href="#">
+					<img src="imgs/zalo.png" alt="zalo" />
+				</a>
+			</div>
+			<div class="fixed-icon">
+				<a href="#">
+					<img src="imgs/messenger3.png" alt="messenger3" />
+				</a>
+			</div>
+			<div class="fixed-icon">
+				<a href="#">
+					<img src="imgs/phone.png" alt="phone" />
+				</a>
+			</div>
+			<div class="fixed-icon">
+				<a href="#">
+					<img src="imgs/location.png" alt="" />
+				</a>
+			</div>
 			<button id="scroll-to-top" class="scroll-btn scroll-top">
 				<i class="fas fa-chevron-up icon-awesome"></i>
 			</button>
 		</div>
 
 		<script src="js/libs.js"></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
 		<script src="js/main.js" defer></script>
 	</body>
 </html>

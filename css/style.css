@@ -1302,6 +1302,9 @@ img {
   display: inline;
   margin-right: 1rem;
 }
+.footer__more div:first-child > a {
+  display: inline-block;
+}
 .footer__social span {
   width: 4rem;
   height: 4rem;
@@ -1324,6 +1327,12 @@ img {
   -webkit-align-items: center;
   justify-content: center;
   -webkit-justify-content: center;
+  transition: color 0.4s;
+  -webkit-transition: color 0.4s;
+  -o-transition: color 0.4s;
+}
+.footer__social a:hover {
+  color: #f2600e;
 }
 .footer__chat {
   width: 80%;
@@ -1491,6 +1500,28 @@ img {
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
 }
+.banner__search-box .form-control .select .select2-container,
+.banner__search-box .form-control .select .select2-hidden-accessible,
+.banner__search-box .form-control .select .selection > * {
+  height: 100%;
+  width: 100%;
+}
+.banner__search-box .form-control .select .select2-container img,
+.banner__search-box .form-control .select .select2-hidden-accessible img,
+.banner__search-box .form-control .select .selection > * img {
+  object-fit: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  position: absolute;
+}
+.banner__search-box .form-control .select .select2-container .select2-selection__arrow,
+.banner__search-box .form-control .select .select2-hidden-accessible .select2-selection__arrow,
+.banner__search-box .form-control .select .selection > * .select2-selection__arrow {
+  display: none;
+}
 .banner__search-box .form-control .select select {
   padding: 1rem;
   width: 100%;
@@ -1503,19 +1534,6 @@ img {
   border-radius: inherit;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-}
-.banner__search-box .form-control .select::before {
-  content: "";
-  position: absolute;
-  font-weight: 900;
-  font-family: "Font Awesome 5 Free";
-  top: 50%;
-  right: 1rem;
-  font-size: 1.5rem;
-  pointer-events: none;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
 }
 .banner__search-box .form-control input {
   flex-grow: 1;
@@ -1653,6 +1671,11 @@ img {
     margin-bottom: 2rem;
   }
 }
+@media (max-width: 1024px) {
+  .banner__inner {
+    padding-top: 4rem;
+  }
+}
 @media (max-width: 991px) {
   .banner {
     padding-top: 10.8rem;
@@ -1744,6 +1767,8 @@ img {
   margin-bottom: 2.6rem;
 }
 .procedure__list li img {
+  max-width: 5rem;
+  max-height: auto;
   background: #2e2e2e;
 }
 .procedure__list li p {
@@ -1905,6 +1930,9 @@ img {
 .payment__box img {
   margin-right: 2.8rem;
   margin-left: 0;
+  width: 8rem;
+  height: auto;
+  object-fit: cover;
 }
 .payment__box h3 {
   font-size: 2rem;
@@ -1964,8 +1992,9 @@ img {
   -o-transition: background 0.6s;
 }
 .services__box img {
-  margin-top: auto;
   margin-bottom: 1rem;
+  width: 4rem;
+  height: auto;
   object-fit: cover;
 }
 .services__box p {
@@ -2111,6 +2140,9 @@ img {
   min-height: 15rem;
   margin-bottom: 3rem;
 }
+.benefit__box:last-child {
+  margin-bottom: 0;
+}
 .benefit__box-icon {
   width: 5rem;
   height: 5rem;
@@ -2129,6 +2161,11 @@ img {
   justify-content: center;
   -webkit-justify-content: center;
 }
+.benefit__box-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
 .benefit__box h3 {
   font-size: 1.6rem;
   font-weight: bold;
@@ -2146,6 +2183,9 @@ img {
   line-height: 2.2rem;
 }
 @media (max-width: 991px) {
+  .benefit {
+    padding: 3rem 0;
+  }
   .benefit .container > div {
     width: calc(100% / 2 - 2.5rem);
   }
@@ -2157,6 +2197,30 @@ img {
   .benefit .container > div {
     width: 100%;
   }
+}
+
+.fixed-icon {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  z-index: 9999;
+  filter: drop-shadow(0 0 1.5px #acacac);
+  -webkit-filter: drop-shadow(0 0 1.5px #acacac);
+  -moz-filter: drop-shadow(0 0 1.5px #acacac);
+}
+.fixed-icon:nth-of-type(1) {
+  bottom: 22rem;
+}
+.fixed-icon:nth-of-type(2) {
+  bottom: 17rem;
+}
+.fixed-icon:nth-of-type(3) {
+  bottom: 12rem;
+}
+.fixed-icon:nth-of-type(4) {
+  bottom: 7rem;
 }
 
 /*# sourceMappingURL=style.css.map */

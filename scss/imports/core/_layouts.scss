@@ -25,6 +25,7 @@ body {
 	// background: $black-cl;
 	@include transition(all $t2);
 	@include custom-scrollbar();
+	@include tracking(25);
 }
 
 .wrapper {

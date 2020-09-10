@@ -9,19 +9,19 @@
 
 @media (min-width: 768px) {
 	.container {
-		max-width: (720px + $padding * 2);
+		max-width: (750px + $padding * 2);
 	}
 }
 
 @media (min-width: 992px) {
 	.container {
-		max-width: (940px + $padding * 2);
+		max-width: (970px + $padding * 2);
 	}
 }
 
 @media (min-width: 1200px) {
 	.container {
-		max-width: (1140px + $padding * 2);
+		max-width: (1170px + $padding * 2);
 	}
 }
 

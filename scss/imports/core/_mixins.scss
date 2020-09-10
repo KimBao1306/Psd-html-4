@@ -83,7 +83,7 @@
 		@content;
 	}
 }
-@mixin transform($args) {
+@mixin transform($args...) {
 	transform: $args;
 	-webkit-transform: $args;
 	-o-transform: $args;

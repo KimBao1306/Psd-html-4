@@ -31,28 +31,11 @@ const showOverlay = () => {
 };
 overlay.addEventListener('click', showOverlay);
 
-//submenu for mobile
-const headerListUl = headerList.querySelectorAll('li');
-
-const openSubMenu = function () {
-	headerListUl.forEach((x) => x.classList.remove('--open'));
-	if (this.matches('.has-sub-menu')) {
-		this.classList.add('--open');
-	}
-};
-
-headerListUl.forEach((x) => {
-	x.addEventListener('click', openSubMenu);
-});
-
 //fixed menu
 const nav = document.querySelector('.header');
 
 function fixedMenu() {
-	if (
-		(document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) &&
-		document.body.offsetWidth >= 768
-	) {
+	if (document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
 		nav.classList.add('--scroll');
 	} else {
 		nav.classList.remove('--scroll');
@@ -72,107 +55,87 @@ const scrollToTop = () => {
 scrollButton.addEventListener('click', scrollToTop);
 
 //search tab
-const tabs = document.querySelectorAll('input[name="search-box"]');
-const formControls = document.querySelectorAll('.form-control ');
+const tabs = document.querySelectorAll('.banner__title p');
+const formControls = document.querySelectorAll('.form-control');
 
 function showFormControl() {
-	formControls.forEach((x) => {
-		x.classList.add('--hidden');
-		x.classList.remove('--show');
-	});
+	tabs.forEach((x) => x.classList.remove('--choice'));
+	formControls.forEach((x) => x.classList.remove('--show'));
 
-	formControls[this.dataset.idForm].classList.remove('--hidden');
 	formControls[this.dataset.idForm].classList.add('--show');
+	this.classList.add('--choice');
 }
 
-tabs.forEach((x) => {
-	x.addEventListener('click', showFormControl);
-});
+tabs.forEach((x) => x.addEventListener('click', showFormControl));
 
-//services
-const servicesBox = document.querySelectorAll('.services__box');
-const contentServices = document.querySelectorAll(
-	'.services__content-list .content'
+//procedure
+const procedureBox = document.querySelectorAll('.procedure__box');
+const contentProcedure = document.querySelectorAll(
+	'.procedure__content-list .content'
 );
 
-function hiddenAllServices() {
-	contentServices.forEach((x) => {
-		//hidden all service
-		x.classList.add('--hidden');
-		x.classList.remove('--show');
-	});
-	servicesBox.forEach((x) => {
+function hiddenAllProcedure() {
+	contentProcedure.forEach((x) => x.classList.remove('--show'));
+	procedureBox.forEach((x) => {
 		x.classList.remove('active');
+		x.children[1].classList.remove('--show');
+		x.children[0].classList.add('--show');
 	});
 }
 
-function showServices() {
-	hiddenAllServices();
-
-	contentServices[this.dataset.content].classList.remove('--hidden');
-	contentServices[this.dataset.content].classList.add('--show');
+function showProcedure() {
+	hiddenAllProcedure();
+	contentProcedure[this.dataset.idProcedure].classList.add('--show');
+	this.children[0].classList.remove('--show');
+	this.children[1].classList.add('--show');
 	this.classList.add('active');
 }
 
-servicesBox.forEach((x) => {
-	x.addEventListener('click', showServices);
-});
-//services - end
+procedureBox.forEach((x) => x.addEventListener('click', showProcedure));
+//procedure - end
 
 //wow.js
 new WOW().init();
 
 //couter find
-// jQuery(document).ready(function ($) {
-// 	$('.count').counterUp({
-// 		delay: 5,
-// 		time: 2000,
-// 	});
-// });
+jQuery(document).ready(function ($) {
+	$('.count').counterUp({
+		delay: 5,
+		time: 2000,
+	});
+});
 
-// function formatState(state) {
-// 	// if (!state.id) {
-// 	// 	return state.text;
-// 	// }
-// 	// var baseUrl = 'imgs/';
-// 	// var $state = $(
-// 	// 	'<span><img src="' +
-// 	// 		baseUrl +
-// 	// 		'/' +
-// 	// 		state.element.value.toLowerCase() +
-// 	// 		'.png" class="img-flag" /> ' +
-// 	// 		state.text +
-// 	// 		'</span>'
-// 	// );
-// 	// return $state;
-// 	console.log(state);
-// }
+//side services
+const servicesListTabs = document.querySelectorAll('.services__list li');
 
-// $('#select-img').select2({
-// 	templateResult: formatState,
-// 	templateSelection: formatState,
-// });
+var galleryThumbs = new Swiper('.services__tabs', {
+	// spaceBetween: 0,
+	slidesPerView: 6,
+	freeMode: true,
+	watchSlidesVisibility: true,
+	watchSlidesProgress: true,
+	direction: 'vertical',
+});
+galleryThumbs.mousewheel.disable();
 
-function formatData(data) {
-	if (!data.id) {
-		return data.text.toUpperCase();
-	}
-
-	const img = $(data.element).attr('data-img');
-
-	if (!img) {
-		return data.text.toUpperCase();
-	} else {
-		const $result = $(`<span><img src="${img}"/></span>`);
-
-		return $result;
-	}
-}
-
-$('#select-img').select2({
-	templateResult: formatData,
-	templateSelection: formatData,
-	minimumResultsForSearch: -1,
-	width: '100%',
-	height: '100%',
+var mySwiper = new Swiper('.services__right', {
+	slidesPerView: 1,
+	spaceBetween: 70,
+	loop: true,
+	autoplay: 3000,
+	autoplayDisableOnInteraction: false,
+	// Optional parameters
+	direction: 'horizontal',
+	fadeEffect: {
+		crossFade: true,
+	},
+	thumbs: {
+		swiper: galleryThumbs,
+	},
+	on: {
+		slideChange: function () {
+			servicesListTabs.forEach((x) => x.classList.remove('active'));
+			servicesListTabs[this.realIndex].classList.add('active');
+		},
+	},
 });

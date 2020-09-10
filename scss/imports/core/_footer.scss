@@ -1,179 +1,152 @@
+// .footer {
+// 	width: 100%;
+// 	background: #363636;
+// 	.container {
+// 		padding: 4rem 1.5rem;
+
+// 		@include flex(row, space-between, center);
+// 		& > div {
+// 			width: calc(100% / 3);
+// 		}
+// 	}
+
+// 	&__info {
+// 		.logo {
+// 			margin-bottom: 3.7rem;
+// 		}
+// 		p:last-child {
+// 			font-size: 1.4rem;
+// 			color: $white-cl;
+// 		}
+// 	}
+
+// 	&__menu {
+// 		max-width: 30rem;
+
+// 		h2 {
+// 			margin-bottom: 1.4rem;
+// 			font-size: 1.6rem;
+// 		}
+
+// 		li {
+// 			a {
+// 				width: 100%;
+// 				display: inline-block;
+// 				color: $white-cl;
+// 				font-size: 1.4rem;
+// 				padding: 1.2rem 0;
+// 				border-bottom: 1px solid $border-cl;
+
+// 				@include flex(row, space-between);
+// 				@include transition(color $t);
+// 			}
+
+// 			&:hover {
+// 				a {
+// 					color: $main-cl;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	.author {
+// 		padding: 1.5rem 0;
+
+// 		background: #303030;
+// 		text-align: center;
+// 		color: $white-cl;
+// 		font-size: 1.2rem;
+// 		span {
+// 			color: $main-cl;
+// 		}
+// 	}
+
+// 	@include mobile {
+// 		.container {
+// 			flex-direction: column;
+// 			div {
+// 				width: 100%;
+// 				margin-bottom: 3rem;
+// 			}
+// 		}
+// 		&__menu {
+// 			max-width: 100%;
+// 		}
+
+// 		.author {
+// 			// margin-top: 2rem;
+// 		}
+// 	}
+// }
+
 .footer {
-	position: relative;
-	padding-top: 7rem;
-	width: 100%;
-	background: #252525;
-	background-image: url(../imgs/ft-bg.png);
-	background-size: cover;
-	background-position: center;
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba($color: #000000, $alpha: 0.6);
-	}
-
+	border-top: 1px solid $border-cl;
+	padding-top: 3rem;
 	.container {
-		position: relative;
-		@include flex(row, flex-start, stretch, wrap);
-		h3 {
-			text-transform: uppercase;
-			margin-bottom: 1.4rem;
-			font-weight: bold;
-			font-size: 1.6rem;
-			color: $orange-cl;
-		}
-	}
-
-	&__left {
-		width: calc(75% - 3rem);
-		margin-right: 3rem;
+		@include flex(row, space-between, center, wrap);
 		& > div {
 			width: calc(100% / 3 - 2rem);
 		}
-		@include flex(row, space-between, stretch, wrap);
 	}
 
-	&__right {
-		@include flex(column, space-between, flex-start);
-		width: 25%;
-	}
-
+	//Info
 	&__info {
-		color: $white-cl;
+		& > *:not(:last-child) {
+			margin-bottom: 3rem;
+		}
+
+		.logo {
+			max-height: 11rem;
+			width: auto;
+		}
+	}
+	&__desc {
 		font-size: 1.4rem;
-		@include leading(14, 25);
-		@include tracking(20);
-		@include flex(column, space-between);
-		h3 {
-			margin-bottom: 0 !important;
-		}
+		color: $text-black-cl;
+		@include leading(14, 20);
+	}
+	&__quote {
+		font-size: 1.8rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		font-style: italic;
 	}
 
-	&__menu {
-		max-width: 30rem;
-
+	//Menu
+	&__list {
 		li {
-			a {
-				width: 100%;
-				display: inline-block;
-				color: $white-cl;
-				font-size: 1.4rem;
-				padding: 1.2rem 0;
-				border-bottom: 1px solid $border-cl;
-
-				@include flex(row, space-between);
-				@include transition(color $t);
-			}
-
-			&:hover {
-				a {
-					color: $orange-cl;
-				}
-			}
-		}
-	}
-
-	&__more {
-		@include flex(column, space-between);
-		div:first-child {
+			padding: 0.5rem 1rem;
 			margin-bottom: 2rem;
-			img {
-				display: inline;
-				margin-right: 1rem;
-			}
-			& > a {
-				display: inline-block;
-			}
-		}
-	}
-
-	&__social {
-		span {
-			width: 4rem;
-			height: 4rem;
-			background: rgba($color: $black-cl, $alpha: 0.3);
-			display: inline-block;
-		}
-		a {
-			width: 100%;
-			height: 100%;
-			color: $white-cl;
-			padding: 1rem;
-			font-size: 1.3rem;
-			@include mid-flex;
-			@include transition(color $t2);
-			&:hover {
-				color: $orange-cl;
+			font-size: 1.6rem;
+			border-left: 3px solid $main-cl;
+			small {
+				display: block;
+				font-size: 1.2rem;
+				margin-bottom: 0.5rem;
+				@include tracking(50);
 			}
 		}
 	}
-
-	&__chat {
-		width: 80%;
-		background: #3b5998;
-		a {
-			white-space: nowrap;
-			font-size: 1.3rem;
-			padding: 1.5rem 4rem;
-			color: $white-cl;
-			@include tracking(25);
-		}
-	}
-
-	.author {
-		width: 100%;
-		margin-top: 6rem;
-		padding: 1.5rem 0;
-
+	//Author
+	&__author {
+		width: 100% !important;
+		padding: 2rem 0;
+		margin-top: 3rem;
+		font-size: 1.4rem;
 		text-align: center;
-		color: $white-cl;
-		font-size: 1.2rem;
-		span {
-			color: $orange-cl;
-		}
-	}
-
-	@include tablet {
-		&__left {
-			width: 100%;
-			& > div {
-				width: calc(100% / 3 - 2rem);
-			}
-		}
-
-		&__right {
-			display: none;
-		}
+		border-top: 1px solid $border-cl;
+		@include leading(14, 30);
 	}
 
 	@include mobile {
 		& {
-			padding-top: 3rem;
-		}
-		&__left {
-			width: 100%;
-			margin-right: 0;
-			& > div {
-				width: 100%;
-				margin-bottom: 2rem;
+			.container {
+				flex-direction: column;
+				& > div {
+					width: 100%;
+					margin-bottom: 2rem;
+				}
 			}
-		}
-		&__right {
-			display: none;
-		}
-		&__menu {
-			max-width: 100%;
-			.main-title {
-				margin-bottom: 0;
-			}
-		}
-		.author {
-			margin-top: 2rem;
 		}
 	}
 }

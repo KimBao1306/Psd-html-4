@@ -1,212 +1,18 @@
-/** Banner */
+/* Banner */
 .banner {
 	position: relative;
-	height: 100vh;
-	padding-top: 16.75rem;
-	background-image: url('../imgs/banner.png');
+	height: 100%;
+	padding-top: 21rem;
+	padding-bottom: 9rem;
+	background-image: url('../imgs/banner-bg.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 
-	&__inner {
+	.container {
 		position: relative;
-		padding-top: 7rem;
-		.main-title {
-			margin-bottom: 2.5rem;
-			span {
-				color: $orange-cl;
-			}
-		}
-	}
-
-	&__search-box {
-		margin-bottom: 2.7rem;
-		padding: 2rem;
-		background: $white-cl;
-		@include br(10px);
-
-		.check-box {
-			margin-bottom: 2rem;
-
-			@include flex(row, flex-start, center);
-
-			div {
-				margin-right: 3rem;
-				@include flex(row, flex-start, center);
-			}
-			label {
-				font-size: 1.4rem;
-				cursor: pointer;
-			}
-			input {
-				position: relative;
-				width: 2rem;
-				height: 2rem;
-				margin: 0 1rem 0 0;
-				cursor: pointer;
-				border: 1px solid $gray-cl;
-				outline: none;
-				@include br(100%);
-				&::after {
-					content: '';
-					width: 1rem;
-					height: 1rem;
-					@include hidden;
-
-					background: $orange-cl;
-					@include br(100%);
-					@include mid;
-					@include transition(opacity $t2);
-				}
-				&:checked:after {
-					@include visible;
-				}
-			}
-		}
-
-		.form-control {
-			@include br(3px);
-			@include flex(row, space-between, stretch, wrap);
-			@include transition(opacity $t2);
-
-			& > * {
-				height: 5rem;
-			}
-
-			.select {
-				position: relative;
-				width: 15%;
-
-				margin-right: 0.7rem;
-				@include br(inherit);
-
-				//custom for select 2 library
-				.select2-container,
-				.select2-hidden-accessible,
-				.selection > * {
-					height: 100%;
-					width: 100%;
-					img {
-						object-fit: cover;
-						@include mid;
-					}
-					.select2-selection__arrow {
-						display: none;
-					}
-				}
-				// select2 select2-container select2-container--default select2-container--below select2-container--focus
-				//custom for select 2 library
-
-				select {
-					padding: 1rem;
-					width: 100%;
-					height: 100%;
-					font-size: 1.4rem;
-					border: none;
-					outline: none;
-					background-color: #e1e1e1;
-					cursor: pointer;
-					@include br(inherit);
-				}
-
-				// &::before {
-				// 	content: '\f107';
-				// 	position: absolute;
-				// 	font-weight: 900;
-				// 	font-family: 'Font Awesome 5 Free';
-				// 	top: 50%;
-				// 	right: 1rem;
-				// 	font-size: 1.5rem;
-				// 	pointer-events: none;
-				// 	@include transform(translateY(-50%));
-				// }
-			}
-
-			input {
-				flex-grow: 1;
-				padding: 1.8rem;
-				margin-right: 0.7rem;
-				border: 1px solid $gray-cl;
-				outline: none;
-				background: $gray-bg-cl;
-				@include br(inherit);
-			}
-
-			.btn {
-				width: 15%;
-				@include br(inherit);
-
-				a {
-					height: 100%;
-					color: $white-cl;
-					@include mid-flex;
-				}
-			}
-
-			&.--show {
-				margin-bottom: 2rem;
-				@include visible;
-			}
-			&.--hidden {
-				@include hidden;
-				height: 0;
-			}
-		}
-	}
-
-	&__small-desc {
-		font-size: 1.4rem;
-		font-weight: 300;
-		line-height: 1.5rem;
-		clear: both;
-	}
-
-	&__list-brand {
-		max-width: 63rem;
-		height: 5rem;
-		margin: 0 auto;
-		@include flex(row, space-between, center, wrap);
+		@include flex(row, space-between, center);
 		& > div {
-			width: calc(25% - 0.75rem);
-			height: 100%;
-			@include mid-flex;
-			@include br(5px);
-		}
-		div:nth-of-type(1) {
-			background: #ff5502;
-		}
-		div:nth-child(2) {
-			background: #ff7813;
-		}
-		div:nth-child(3) {
-			background: #fb8734;
-		}
-		div:nth-child(4) {
-			background: #f12517;
-		}
-	}
-
-	&__list-strength {
-		position: absolute;
-		bottom: 4rem;
-		left: 50%;
-		width: 77.6%;
-		@include transform(translateX(-50%));
-		@include flex(row, space-between, center, wrap);
-		div {
-			width: calc(100% / 8);
-			@include flex(row, center, center);
-			img {
-				margin: 0;
-				margin-right: 1rem;
-			}
-			p {
-				text-align: center;
-				font-size: 1.4rem;
-				font-weight: 300;
-				color: $white-cl;
-				@include leading(14, 16.8);
-				@include tracking(25);
-			}
+			width: calc(50% - 4.5rem);
 		}
 	}
 
@@ -217,403 +23,351 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background: rgba($color: $black-bg-cl, $alpha: 0.8);
+		background: rgba($color: #335257, $alpha: 0.5);
 		z-index: 0;
 	}
 
-	@include desktop {
-		&__list-strength {
-			div {
-				width: calc(100% / 4);
-				margin-bottom: 2rem;
-			}
+	/*Left*/
+	&__left {
+		.main-title {
+			margin-bottom: 2.7rem;
 		}
 	}
 
-	@include sc-break(1024px) {
-		&__inner {
-			padding-top: 4rem;
-			// @include mid-flex;
-		}
-	}
-
-	@include tablet {
-		& {
-			padding-top: 10.8rem;
-		}
-	}
-
-	@include mobile {
-		&__inner {
-			padding-top: 3rem;
-			.main-title {
-				font-size: 2.8rem;
-			}
-		}
-		&__search-box {
-			.check-box {
-				flex-direction: column;
-				align-items: flex-start;
-				div:not(:last-child) {
-					margin-bottom: 1rem;
-				}
-			}
-
-			.form-control {
-				flex-direction: column;
-				align-items: flex-start;
-				& > * {
-					height: 5rem;
-				}
-
-				.select {
-					width: 100%;
-					margin-bottom: 1rem;
-					@include br(inherit);
-				}
-
-				input {
-					width: 100%;
-					margin: 0 0 1rem;
-				}
-
-				.btn {
-					width: 100%;
-					@include br(inherit);
-				}
-
-				&.--show {
-					// display: none;
-				}
-			}
-		}
-		&__list-brand {
-			& > div {
-				width: calc(50% - 0.75rem);
-				margin-bottom: 1rem;
-			}
-		}
-		&__list-strength {
-			display: none;
-		}
-	}
-
-	@media screen and (width: 1280px) and (max-height: 579px) {
-		&__list-brand {
-			display: none;
-		}
-	}
-}
-/** Banner - End */
-
-/** Procedure */
-.procedure {
-	height: 40rem;
-	background-image: url('../imgs/quytrinh-bg.png');
-	background-size: cover;
-	background-position: center center;
-
-	.container {
-		position: relative;
-	}
-
-	&__list {
-		position: absolute;
-		top: 4.5rem;
-		left: 0;
-		padding: 0 1.5rem;
-		width: 100%;
-		z-index: 1;
-		@include flex(row, space-between, stretch, wrap);
-
-		li {
-			width: calc(100% / 6 - 2.5rem);
-			color: $white-cl;
-			font-size: 1.4rem;
-			font-weight: bold;
+	&__tools {
+		@include flex(row, flex-start, center);
+		.btn {
+			background: #ff0000;
 			a {
-				margin-bottom: 2.6rem;
-			}
-			img {
-				max-width: 5rem;
-				max-height: auto;
-				background: #2e2e2e;
-			}
-			p {
-				min-height: 3rem;
-				text-align: center;
-				@include leading(14, 20);
-				@include tracking(25);
-			}
-		}
-	}
-	&__arrow {
-		position: absolute;
-		top: 6rem;
-		left: 0;
-		width: 100%;
-	}
-
-	@include tablet {
-		& {
-			// display: none;
-		}
-	}
-	@include mobile {
-		&__list {
-			// display: none;
-
-			top: 2rem;
-			li {
-				width: calc(100% / 3 - 2rem);
+				padding: 1.4rem 3.5rem;
 				font-size: 1.2rem;
-				a,
-				p {
-					margin-bottom: 0.8rem;
+			}
+			i {
+				margin-right: 1rem;
+			}
+			&:last-child {
+				margin-left: 0.7rem;
+				background: #008744;
+			}
+		}
+	}
+
+	/*Right*/
+	&__right {
+		height: 100%;
+		@include flex(column, space-between, flex-end);
+	}
+
+	&__search {
+		width: calc(100% / 6 * 4);
+		margin-bottom: 16rem;
+		background: $bg-white-cl;
+		@include br(5px);
+	}
+
+	&__title {
+		@include flex(row, flex-start, center, wrap);
+		p {
+			padding: 3rem;
+			width: 50%;
+			height: 100%;
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: $text-gray-cl;
+			border-bottom: 2px solid $border-cl;
+			white-space: nowrap;
+			cursor: pointer;
+			@include tracking(25);
+			&.--choice {
+				color: $main-cl;
+				border-bottom: 2px solid $main-cl;
+			}
+		}
+	}
+
+	&__form {
+		padding: 2rem;
+
+		.form-control {
+			display: none;
+			min-height: 17rem;
+			@include animation(showForm $t2);
+			&.--show {
+				display: block;
+			}
+		}
+
+		.select {
+			position: relative;
+			width: 10rem;
+			min-height: 3rem;
+			margin-bottom: 3rem;
+			select {
+				padding: 1rem 0.8rem;
+				width: 100%;
+				height: 100%;
+				font-size: 1.4rem;
+				outline: none;
+				cursor: pointer;
+				border: 1px solid $border-cl;
+				@include br(5px);
+			}
+			// arrow for select
+			&::before {
+				content: '\f107';
+				position: absolute;
+				font-weight: 900;
+				font-family: 'Font Awesome 5 Free';
+				top: 50%;
+				right: 1rem;
+				font-size: 1.5rem;
+				pointer-events: none;
+				color: $main-cl;
+				@include transform(translateY(-50%));
+			}
+		}
+
+		.input {
+			position: relative;
+			margin-bottom: 3rem;
+			input {
+				padding-bottom: 1.5rem;
+				width: 100%;
+				height: 100%;
+				border: none;
+				border-bottom: 1px solid $border-cl;
+				outline: none;
+			}
+			&::after {
+				// content: '\f002';
+				position: absolute;
+				top: 50%;
+				left: 2rem;
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
+				font-size: 1.5rem;
+				@include transform(translateY(-50%));
+			}
+		}
+
+		.btn {
+			margin-left: auto;
+			a {
+				padding: 1rem 2rem;
+				height: 100%;
+				color: $white-cl;
+				@include mid-flex;
+			}
+		}
+	}
+
+	&__info {
+		margin-left: 3rem;
+		@include flex;
+
+		&-box {
+			width: 50%;
+			color: $white-cl;
+			padding: 0 2rem;
+			background-color: $main-cl;
+			line-height: 1.5;
+			h3 {
+				padding: 2rem 0;
+				font-size: 1.2rem;
+				font-weight: bold;
+				text-transform: uppercase;
+				border-bottom: 1px solid $border-cl;
+			}
+			&:first-of-type {
+				background-color: $black-bg-cl;
+				.banner__info-desc {
+					@include flex(row, flex-start, flex-end);
+					a {
+						color: $main-cl;
+						vertical-align: bottom;
+					}
 				}
 			}
 		}
-		&__arrow {
-			display: none;
-		}
-	}
-}
-/** Procedure - End */
-
-/** Tools  */
-.heading {
-	padding: 0 1.5rem;
-	.main-title {
-		margin-bottom: 1rem;
-		& + img {
-			margin-bottom: 1.6rem;
-		}
-	}
-}
-
-.tools {
-	// margin: 5rem 0;
-	&__desc {
-		margin-bottom: 5rem;
-		font-size: 1.6rem;
-		color: $gray-cl;
-		@include tracking(25);
-		@include leading(16, 20);
-	}
-	.container {
-		@include flex(row, flex-start);
-		& > div {
-			width: 50%;
+		&-desc {
+			padding: 2rem 0;
+			font-size: 1.4rem;
+			p {
+				font-size: 2.4rem;
+			}
 		}
 	}
 
-	&__right {
-		max-width: 37rem;
-		margin: 0 auto;
-		@include flex(column, space-evenly, center);
-		h3 {
-			color: $gray-cl;
-			font-size: 1.8rem;
-			font-weight: bold;
-			margin-bottom: 2.4rem;
-			text-align: center;
-			@include tracking(25);
-			@include leading(18, 24);
+	/*Responsive*/
+	@include desktop {
+		&__left {
+			.main-title {
+				font-size: 4rem;
+			}
 		}
-		& > div {
+		&__search,
+		&__info {
 			width: 100%;
 		}
 	}
 
-	&__broswer {
-		@include flex(row, space-between, flex-start, wrap);
-		.btn {
-			width: calc(50% - 1rem);
-			a {
-				padding: 1.3rem;
+	@include tablet {
+		/*Left*/
+		&__left {
+			.main-title {
+				font-size: 3rem;
+			}
+		}
+		.container {
+			& > div {
+				width: calc(50% - 1.5rem);
 			}
 		}
 	}
 
-	@include tablet {
-		&,
-		&__desc {
+	@include mobile {
+		& {
+			.container {
+				flex-direction: column;
+				& > div {
+					width: 100%;
+				}
+			}
+		}
+
+		&__left {
 			margin-bottom: 3rem;
 		}
-	}
 
-	@include mobile {
-		.container {
+		&__search {
+			margin-bottom: 3rem;
+		}
+
+		&__info {
 			flex-direction: column;
-			align-items: center;
 			& > div {
 				width: 100%;
 			}
 		}
-		&__right {
-			h3 {
-				margin-bottom: 1.4rem;
-			}
-			& > div:first-child {
-				margin-bottom: 2rem;
-			}
-		}
-		&__broswer {
-			flex-direction: column;
-			align-items: center;
-			.btn:first-child {
-				margin-bottom: 1rem;
-			}
-			.btn {
-				width: 100%;
-			}
-		}
+		// .container {
+		// 	padding-top: 3rem;
+		// 	padding-bottom: 3rem;
+		// 	.main-title {
+		// 		font-size: 2.8rem;
+		// 		margin-bottom: 2rem;
+		// 	}
+		// }
 	}
 }
-/** Tools - End */
+/* Banner - End */
 
-/** Payment */
-.payment {
-	min-height: 45rem;
-	padding: 5.5rem 0;
-	background-image: url('../imgs/thanhtoan-bg.png');
-	background-size: cover;
-	background-position: center right;
+/* Procedure */
+.procedure {
+	background-color: #f3f6f7;
+	padding: 7rem 0 0;
 
-	width: 100%;
-
-	.container {
-		@include flex(row, space-between, stretch, wrap);
-		.payment__box {
-			width: calc(100% / 3 - 2rem);
-		}
-	}
-
-	&__box {
-		padding: 3rem 2rem;
-		background: $white-cl;
-		box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-		@include br(10px);
-		@include flex(row, flex-start, center);
-		img {
-			margin-right: 2.8rem;
-			margin-left: 0;
-			width: 8rem;
-			height: auto;
-			object-fit: cover;
-		}
-		h3 {
-			font-size: 2rem;
-			font-weight: bold;
-			margin-bottom: 1rem;
-			@include tracking(25);
-			@include leading(18, 24);
-		}
-		p {
-			font-size: 1.4rem;
-			line-height: 1.5;
-			@include tracking(25);
-			&:nth-of-type(2),
-			&:nth-of-type(4) {
-				color: $orange-cl;
-				font-weight: bold;
-			}
-		}
-	}
-
-	@include tablet {
-		.container {
-			.payment__box {
-				width: calc(100% / 2 - 2rem);
-				margin-bottom: 2rem;
-				&:last-child {
-					margin-bottom: 0;
-					@include offset(3);
-				}
-			}
-		}
-	}
-
-	@include mobile {
-		.container {
-			.payment__box {
-				width: 100%;
-				&:last-child {
-					@include offset(0);
-				}
-			}
-		}
-	}
-}
-/** Payment - End */
-
-.services {
 	&__list {
-		@include flex(row, center, stretch, wrap);
+		@include flex(row, space-between, stretch, wrap);
 	}
-	&__box {
-		// min-height: 15rem;\
-		position: relative;
 
-		padding: 2rem;
-		width: calc(100% / 6);
+	&__box {
+		// min-height: 15rem
+		position: relative;
+		width: calc(100% / 6 - 2.5rem);
 		cursor: pointer;
+
 		@include flex(column, flex-start, center);
 		@include transition(background $t);
 
 		img {
-			margin-bottom: 1rem;
-			width: 4rem;
-			height: auto;
-			object-fit: cover;
+			margin-bottom: 1.2rem;
+			max-width: 4rem;
+			max-height: 5rem;
+			min-height: 4rem;
+			display: none;
+			&.--show {
+				display: block;
+			}
 		}
 
 		p {
-			min-height: 5rem;
-			font-size: 1.4rem;
+			min-height: 7rem;
+			font-size: 1.6rem;
 			text-align: center;
-			text-transform: uppercase;
 			font-weight: bold;
-			color: $black-cl;
+			color: $text-black-cl;
+			line-height: 1.2;
 		}
-		&:hover,
+
+		// &.active {
+		// 	background: $black-bg-cl;
+		// 	p {
+		// 		color: $white-cl;
+		// 	}
+		// }
 		&.active {
-			background: $black-bg-cl;
 			p {
-				color: $white-cl;
+				color: $main-cl;
 			}
-		}
-		&.active {
 			&::after {
 				content: '';
 				position: absolute;
-				bottom: 0;
 				left: 50%;
-				border-left: 1.5rem solid transparent;
-				border-right: 1.5rem solid transparent;
-				border-bottom: 1.5rem solid $orange-cl;
-				@include transform(translateX(-50%));
+				bottom: 0;
+				width: 3rem;
+				height: 3rem;
+
+				background: $bg-white-cl;
+				border-top: 1px solid $border-cl;
+				border-left: 1px solid $border-cl;
+				@include transform(translate(-50%, 50%) rotate(45deg));
+			}
+			&::before {
+				content: '\f107';
+				position: absolute;
+				font-family: 'Font Awesome 5 Free';
+				bottom: -0.5rem;
+				z-index: 1;
+
+				font-weight: 900;
+				font-size: 1.5rem;
+				color: $main-cl;
 			}
 		}
 	}
-	&__content-list {
-		position: relative;
-		padding: 6.6rem;
 
-		background-image: url('../imgs/services-bg.png');
-		background-position: center;
+	&__content-list {
+		padding: 8rem 1.5rem;
+		border: 1px solid $border-cl;
+
+		background-image: url('../imgs/procedure-bg.png');
 		background-size: cover;
 
 		.content {
-			@include flex(row, space-between, stretch);
-			@include transition(opacity $t2);
-			& > * {
-				width: calc(100% / 2 - 5rem);
+			display: none;
+			max-width: 103rem;
+			margin: 0 auto;
+
+			@include animation(showForm $t2);
+
+			&::after {
+				content: '';
+				clear: both;
+				display: table;
 			}
 
-			img {
-				margin-right: 0;
-				object-fit: contain;
+			& > * {
+				float: left;
+				width: 50%;
+			}
+
+			.img {
+				float: right;
+				img {
+					width: calc(100% / 5 * 4);
+					margin: 0 auto;
+					object-fit: cover;
+				}
 			}
 
 			.main-title {
@@ -622,144 +376,500 @@
 				margin-bottom: 2rem;
 				line-height: 1.5;
 			}
+
 			p {
 				margin-bottom: 2rem;
-				color: $white-cl;
+				color: $text-gray-cl;
 				font-size: 1.4rem;
 				@include leading(14, 20);
 			}
+
 			.btn {
 				max-width: 14rem;
 				width: 100%;
 				a {
+					padding: 1rem 4rem;
 					color: $white-cl;
 				}
 			}
 
 			&.--show {
-				@include visible;
-			}
-
-			&.--hidden {
-				height: 0;
-				@include hidden;
+				display: block;
 			}
 		}
 	}
-	@include tablet {
-		&__content-list {
-			padding: 3.3rem;
-		}
 
+	// @include tablet {
+	// 	&__content-list {
+	// 		padding: 3.3rem;
+	// 	}
+
+	// 	&__box {
+	// 		width: calc(100% / 3);
+	// 		&.active {
+	// 			&::before,
+	// 			&::after {
+	// 				display: none;
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// @include mobile {
+	// 	& {
+	// 		padding: 5rem 0;
+	// 	}
+	// 	&__content-list {
+	// 		padding: 3.3rem;
+	// 		.content {
+	// 			flex-direction: column;
+	// 			& > * {
+	// 				width: 100%;
+	// 			}
+	// 			img {
+	// 				margin-bottom: 2rem;
+	// 			}
+	// 			p {
+	// 				margin-bottom: 0;
+	// 			}
+	// 		}
+	// 	}
+	// 	&__box {
+	// 		width: calc(100% / 2);
+	// 	}
+	// }
+	@include mobile {
 		&__box {
 			width: calc(100% / 3);
-		}
-	}
-	@include mobile {
-		.container {
-			padding: 0;
-		}
-		&__content-list {
-			padding: 3.3rem;
-		}
-		&__box {
-			width: calc(100% / 2);
+			&.active {
+				&::before,
+				&::after {
+					display: none;
+				}
+			}
 		}
 
 		&__content-list {
+			padding: 4rem 1.5rem;
+			border: 1px solid $border-cl;
+
+			background-image: url('../imgs/procedure-bg.png');
+			background-size: cover;
+
 			.content {
-				flex-direction: column-reverse;
+				display: none;
+				max-width: 103rem;
+				margin: 0 auto;
+
+				@include animation(showForm $t2);
 				& > * {
 					width: 100%;
 				}
-				img {
-					margin-bottom: 2rem;
+
+				.img {
+					display: none;
 				}
 			}
 		}
 	}
 }
+/* Procedure - End*/
 
-.benefit {
-	padding: 7.8rem 0 8rem;
-	.container {
-		@include flex(row, space-between, stretch, wrap);
-		& > div {
-			width: calc(100% / 3 - 6.67rem);
-		}
-	}
-
+/* Services*/
+.services {
+	@include flex(row, flex-start, stretch, wrap);
+	//Left
 	&__left {
-		.benefit__box {
-			&-icon {
-				margin-left: auto;
-			}
-			text-align: right;
-		}
+		top: 0;
+		left: 0;
+		width: 37.5rem;
+		height: 100%;
+		background-color: $black-bg-cl;
 	}
 
-	&__center {
-		@include mid-flex;
-	}
-
-	&__box {
-		width: 100%;
-		min-height: 15rem;
-		margin-bottom: 3rem;
-		&:last-child {
-			margin-bottom: 0;
-		}
-		&-icon {
-			width: 5rem;
-			height: 5rem;
-			background: $orange-cl;
-			@include br(100%);
-			@include mid-flex;
-			img {
-				max-width: 100%;
-				max-height: 100%;
-				object-fit: cover;
-			}
-		}
+	&__tabs {
 		h3 {
-			font-size: 1.6rem;
-			font-weight: bold;
-			@include leading(16, 36);
+			padding: 3rem;
+			text-transform: uppercase;
 		}
-		p {
-			font-size: 1.4rem;
-			@include leading(14, 20);
+	}
+
+	&__list {
+		width: 100%;
+		height: 100%;
+
+		li {
+			touch-action: auto;
+			max-height: 9.6rem;
+			position: relative;
+			padding: 3rem;
+			font-size: 1.8rem;
+			color: $white-cl;
+			cursor: pointer;
+			@include leading(18, 36);
+			@include flex(row, flex-start, center);
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				width: calc(100% - 4rem);
+				height: 1px;
+				background: rgba($color: $border-cl, $alpha: 0.2);
+				@include transform(translateX(-50%));
+			}
+
+			&.active {
+				background-color: $main-cl;
+			}
 		}
-		a {
-			font-size: 1.2rem;
-			font-weight: bold;
-			color: $orange-cl;
-			text-decoration: underline;
-			@include leading(12, 20);
+	}
+
+	//Right
+	&__right {
+		width: 100%;
+		max-width: calc(100% - 37.5rem);
+		background-color: $white-cl;
+		.container {
+			padding: 8rem 0 8rem 7rem;
+			margin: 0;
+		}
+	}
+
+	&__slide {
+		// display: none;
+		background-image: url('../imgs/services-bg.png');
+		background-repeat: no-repeat;
+		background-size: 40.51%;
+		background-position: bottom right;
+		h3 {
+			color: $main-cl;
+			text-transform: uppercase;
+		}
+		h2 {
+			margin-bottom: 3rem;
+		}
+		&-desc {
+			max-width: 70rem;
+			margin-bottom: 6rem;
+			@include flex(row, space-between);
+			& > div {
+				width: calc(50% - 1.5rem);
+			}
+
+			.desc-box {
+				margin-top: 0;
+				&:first-child {
+					font-size: 1.8rem;
+					color: $text-black-cl;
+					font-weight: bold;
+					@include leading(18, 24);
+				}
+			}
+		}
+
+		&-info {
+			max-width: 53.5rem;
+			@include flex(row, space-between, center, wrap);
+			div {
+				width: calc(100% / 3);
+				p {
+					font-size: 3.6rem;
+					color: $main-cl;
+					@include leading(36, 24);
+					font-weight: 300;
+				}
+				p:last-of-type {
+					font-size: 1.6rem;
+					color: $text-black-cl;
+					@include leading(16, 24);
+				}
+			}
+		}
+		&.--show {
+			display: block;
 		}
 	}
 
 	@include tablet {
 		& {
-			padding: 3rem 0;
+			flex-direction: column;
 		}
-		.container {
-			& > div {
-				width: calc(100% / 2 - 2.5rem);
+
+		//Left
+		&__left {
+			width: 100%;
+		}
+		&__list {
+			li {
+				padding: 1.5rem;
 			}
 		}
-		&__center {
-			display: none;
+		//Right
+		&__right {
+			max-width: 100%;
+			.container {
+				padding: 4rem 1.5rem;
+			}
 		}
 	}
 	@include mobile {
-		.container {
-			& > div {
-				width: 100%;
+		&__slide {
+			background: none;
+			h2 {
+				margin-bottom: 1rem;
+			}
+			&-desc {
+				flex-direction: column;
+				margin-bottom: 3rem;
+				& > div {
+					width: 100%;
+				}
+				.desc-box:first-child {
+					margin-bottom: 1rem;
+				}
+			}
+			&-info {
+				align-items: stretch;
+				div {
+					width: calc(100% / 2);
+					text-align: center;
+					&:last-child {
+						margin: 0 auto;
+					}
+				}
 			}
 		}
 	}
 }
+/* Services - End*/
+
+/* Benefit*/
+.benefit {
+	.container {
+		padding: 8rem 1.5rem 0;
+	}
+
+	.heading {
+		padding-left: 7rem;
+	}
+
+	&__list {
+		@include flex(row, space-between, stretch, wrap);
+	}
+
+	&__box {
+		position: relative;
+		width: calc(50% - 1.5rem);
+		padding: 7rem;
+		border: 1px solid $border-cl;
+		margin-bottom: 3rem;
+
+		&-number {
+			position: absolute;
+			top: 2.2rem;
+			right: 3.5rem;
+			color: $main-cl;
+			font-size: 3rem;
+			@include leading(30, 36);
+			@include transform(translateX(1.75rem));
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0;
+			@include transition(opacity $t2);
+		}
+
+		&::before {
+			background-image: url('../imgs/benefit-bg.png');
+			background-size: cover;
+		}
+		&::after {
+			background-color: rgba($color: $black-cl, $alpha: 0.3);
+		}
+
+		&:hover {
+			&::after,
+			&::before {
+				opacity: 1;
+			}
+			h3,
+			.desc-box {
+				color: $white-cl;
+			}
+		}
+	}
+	&__quote {
+		position: relative;
+		max-width: 103rem;
+		margin: 5.6rem auto 8.6rem;
+		font-size: 3.6rem;
+		line-height: 1.2;
+		text-align: center;
+		font-style: italic;
+		padding: 0 8.2rem;
+		span {
+			color: $main-cl;
+		}
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			width: 3rem;
+			height: 2.5rem;
+			background-repeat: no-repeat;
+		}
+
+		&::before {
+			top: 0;
+			left: 0;
+			background-image: url('../imgs/benefit-quote-left.png');
+		}
+		&::after {
+			bottom: 0;
+			right: 0;
+			background-image: url('../imgs/benefit-quote-right.png');
+		}
+	}
+
+	@include tablet {
+		.container {
+			padding: 4rem 1.5rem 1rem;
+		}
+		.heading {
+			padding-left: 0;
+		}
+		&__box {
+			padding: 3rem;
+			&-number {
+				top: 1.5rem;
+				right: 3rem;
+			}
+		}
+		&__quote {
+			margin: 3rem 0 0 0;
+		}
+	}
+
+	@include mobile {
+		&__box {
+			width: 100%;
+		}
+		&__quote {
+			display: none;
+		}
+	}
+}
+/* Benefit - End*/
+
+/* Faq */
+.faq {
+	padding-bottom: 3rem;
+	.container {
+		@include flex(row, flex-start, stretch, wrap);
+	}
+	//Left
+	&__left {
+		position: relative;
+		width: calc(100% / 12 * 8);
+		padding: 8rem 1.5rem 0;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 0;
+		width: 114.5rem;
+		margin-right: 1.5rem;
+	}
+
+	&__form {
+		position: relative;
+		width: 67rem;
+		z-index: 1;
+		.main-title {
+			margin-bottom: 2.6rem;
+		}
+		form {
+			background-color: $white-cl;
+			padding: 7rem;
+			border: 1px solid $border-cl;
+			@include br(5px);
+			@include flex(column, center, stretch);
+
+			input,
+			textarea {
+				margin-bottom: 1rem;
+				padding: 1.5rem 3rem;
+				outline: none;
+				border: 1px solid $border-cl;
+				@include br(inherit);
+			}
+
+			.btn {
+				padding: 1.2rem 4.4rem;
+				margin-left: auto;
+
+				cursor: pointer;
+				font-size: 1.4rem;
+				color: $white-cl;
+			}
+		}
+	}
+
+	//Right
+	&__right {
+		padding-left: 5.5rem;
+		width: calc(100% / 12 * 4);
+	}
+
+	@include tablet {
+		.container {
+			flex-direction: column;
+			padding: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+
+		//Left
+		&__left {
+			padding-top: 2rem;
+			width: 100%;
+		}
+
+		&__form {
+			margin: 0 auto;
+			width: 100%;
+
+			form {
+				padding: 3rem;
+			}
+		}
+
+		&__bg {
+			width: 100%;
+			margin-right: 0;
+		}
+
+		//Right
+		&__right {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+			max-width: 100%;
+			width: 100%;
+			// margin-bottom: 4rem;
+		}
+	}
+}
+/* Faq - End*/
 
 // @include sc-break(600px) {
 // 	.find {

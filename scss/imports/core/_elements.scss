@@ -24,88 +24,55 @@ img {
 	max-width: 17rem;
 }
 
-// .logo {
-// 	font-size: 2.4rem;
-// 	font-family: RbB;
-
-// 	@include leading(24, 20);
-// 	a {
-// 		color: $black-cl;
-// 	}
-// 	span {
-// 		color: $blue-cl;
-// 	}
-// }
-
 .btn {
-	// max-width: 14rem;
-	// max-height: 5rem;
+	width: 14rem;
 	@include br(5px);
 	@include transition(background-color $t2);
-
 	a {
 		display: inline-block;
-		padding: 0.6rem;
 		width: 100%;
-		font-size: 1.8rem;
-		font-weight: bold;
-		color: $black-cl;
+		font-size: 1.4rem;
+		color: $white-cl;
 		text-align: center;
-		@include leading(18, 24);
+		line-height: 1.2;
 		@include tracking(25);
 		@include transition(color $t2);
 	}
-	i {
-		color: $orange-cl;
-		@include transition(color $t2);
-	}
-	&.--has-bd {
-		border: 2px solid $orange-cl;
+	&.--has-bg {
+		background-color: $main-cl;
 	}
 	&.--rounded {
 		@include br(999px);
 	}
-	&.--has-bg {
-		background-color: $orange-cl;
-	}
-	&.--hover:hover {
-		background: $orange-cl;
+	&.--underline {
 		a {
-			color: $white-cl;
-		}
-		i {
-			color: $white-cl;
+			text-decoration: underline;
 		}
 	}
-	// &.--blue {
-	// 	background: $blue-cl;
-	// }
-	// &.--shadow {
-	// 	box-shadow: 0 3px 8px rgba($color: $black-cl, $alpha: 0.3);
-	// }
+	&.--orange {
+		color: $main-cl;
+	}
 }
 
 .main-title {
 	line-height: 1.2;
 	font-size: 3rem;
-
-	// &.--large {
-	// 	font-size: 4.8rem;
-	// }
-	// &.--medium {
-	// 	font-size: 2.4rem;
-	// }
-	// &.--small {
-	// 	font-size: 1.4rem;
-	// }
-	// &.--gray {
-	// 	color: $gray-cl;
-	// }
+	&.--large {
+		font-size: 4.8rem;
+	}
+	&.--medium {
+		font-size: 3rem;
+		@include leading(30, 36);
+	}
+	&.--small {
+		font-size: 1.8rem;
+		@include leading(18, 36);
+	}
 	&.--white {
 		color: $white-cl;
 	}
 	&.--black {
-		color: $black-cl;
+		color: $text-main-cl;
 	}
 	&.--thin {
 		font-weight: 300;
@@ -113,20 +80,6 @@ img {
 	&.--bold {
 		font-weight: bold;
 	}
-	// &.--border-bt {
-	// 	position: relative;
-	// 	padding-bottom: 1.5rem;
-	// 	&::after {
-	// 		content: '';
-	// 		position: absolute;
-	// 		bottom: -0.2rem;
-	// 		left: 50%;
-	// 		transform: translateX(-50%);
-	// 		width: 7rem;
-	// 		height: 0.3rem;
-	// 		background: $blue-cl;
-	// 	}
-	// }
 }
 
 .scroll-btn {
@@ -146,3 +99,79 @@ img {
 		font-size: 1.6rem;
 	}
 }
+
+/* Heading */
+.heading {
+	// max-width: 83rem;
+	// margin: 0 auto;
+	// .main-title {
+	// 	margin-bottom: 3rem;
+	// }
+	// &__desc {
+	// 	margin-bottom: 3rem;
+	// 	color: $text-gray-cl;
+	// 	font-size: 1.4rem;
+	// 	@include leading(14, 20);
+	// }
+	h3 {
+		color: $main-cl;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin-bottom: 3rem;
+	}
+}
+/* Heading - End */
+
+/* Description - Box*/
+.desc-box {
+	position: relative;
+	margin-top: 2rem;
+	font-size: 1.4rem;
+	font-weight: 300;
+	color: $text-gray-cl;
+	@include leading(14, 24);
+	@include tracking(10);
+	@include transition(color $t2);
+
+	h3 {
+		text-transform: capitalize;
+		position: relative;
+		padding-left: 3rem;
+		@include transition(color $t2);
+
+		&::before {
+			position: absolute;
+			content: '';
+			top: 50%;
+			left: 0;
+			width: 1rem;
+			height: 1rem;
+			background: $main-cl;
+			@include transform(translateY(-50%));
+		}
+	}
+
+	.btn {
+		margin-top: 1.5rem;
+		font-size: 1.4rem;
+		line-height: 1.2;
+		font-weight: bold;
+		a {
+			color: $main-cl;
+			text-align: left;
+		}
+	}
+}
+/* Description - Box - End*/
+
+/* Animation*/
+@include keyframes(showForm) {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+/* Animation - End*/

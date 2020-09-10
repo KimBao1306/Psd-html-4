@@ -4,68 +4,102 @@
 	left: 0;
 	width: 100%;
 	margin: 0 auto;
-	max-height: 14rem;
+	// max-height: 14rem;
 	z-index: 700;
 	/** Top */
 	&__top {
-		width: 100%;
-		height: 4rem;
-		padding: 0.8rem 2.2rem;
-		background: $black-bg-cl;
-		@include flex(row, space-between, center, wrap);
-		@include transition(opacity $t2);
+		padding: 0.5rem 0;
+		background: $main-cl;
+		@include transition(opacity 0.5s);
 
-		& > ul {
+		.container {
+			height: 4rem;
+			@include flex(row, flex-start, center, wrap);
+		}
+
+		ul {
 			height: 100%;
 			@include flex(row, center, center);
-			li {
-				margin: 0 1.3rem;
-			}
+		}
 
-			li,
-			a {
-				font-size: 1.2rem;
-				text-transform: capitalize;
-				color: $white-cl;
-				@include tracking(25);
-				i {
-					margin-right: 0.7rem;
-				}
-			}
+		li,
+		a {
+			font-size: 1.2rem;
+			color: $white-cl;
+			@include tracking(50);
+			@include leading(12, 24);
 		}
 	}
 
 	&__info {
 		margin-right: auto;
-		@include flex(row, center, center);
-	}
-
-	&__social {
-		li {
-			width: 2.4rem;
-			height: 2.4rem;
-			margin: 0 0.8rem;
-			@include transition(transform $t2);
-			a {
-				display: block;
-			}
-			&:hover {
-				transform: translateY(-3px);
+		li:last-child {
+			position: relative;
+			margin-left: 4rem;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: -2rem;
+				width: 0.1rem;
+				height: 2rem;
+				background-color: #f5b39e;
+				@include transform(translateY(-50%));
 			}
 		}
 	}
 
 	&__auth {
+		li {
+			margin-right: 2.6rem;
+			i {
+				margin-right: 0.5rem;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
 		a {
 			@include transition(color $t2);
 			&:hover {
-				color: $orange-cl;
+				color: $black-bg-cl;
 			}
+		}
+	}
+
+	&__search {
+		position: relative;
+		width: 20rem;
+		height: 100%;
+		margin-left: 2.6rem;
+		input {
+			padding: 1rem 2rem;
+			width: 100%;
+			height: 100%;
+			border: none;
+			outline: none;
+			background-color: rgba($color: #000000, $alpha: 0.1);
+			color: $white-cl;
+			@include br(999px);
+			&::placeholder {
+				color: $white-cl;
+			}
+		}
+		i {
+			position: absolute;
+			top: 50%;
+			right: 2rem;
+			font-size: 1rem;
+			color: $white-cl;
+			@include transform(translateY(-50%));
 		}
 	}
 
 	// User - Box
 	&__user-box {
+		position: relative;
+		margin-left: auto;
+
 		//Acc-info
 		.acc-info {
 			&-btn {
@@ -83,7 +117,7 @@
 
 			&:hover .acc-info-btn,
 			&:hover .acc-info-btn .icon {
-				color: $orange-cl;
+				color: $text-black-cl;
 			}
 
 			&:hover .status-desktop {
@@ -93,8 +127,8 @@
 
 		.status-desktop {
 			position: absolute;
-			top: 2.5rem;
-			right: 4rem;
+			top: 3.5rem;
+			right: 0;
 			display: none;
 
 			width: 300px;
@@ -121,7 +155,7 @@
 					bottom: 0;
 					left: 0;
 					width: 100%;
-					height: calc(100% + 23px);
+					height: calc(100% + 3.7rem);
 					background-repeat: no-repeat;
 					background-image: url(../imgs/status-header-bg.png);
 					background-position: center;
@@ -167,7 +201,7 @@
 						height: 100%;
 						max-width: 100%;
 						border-radius: 9px;
-						background-color: $orange-cl;
+						background-color: $main-cl;
 						background-image: -webkit-repeating-linear-gradient(
 							135deg,
 							transparent 0px,
@@ -196,7 +230,7 @@
 						margin-left: 10px;
 						font-weight: bold;
 						& .vnd {
-							color: $orange-cl;
+							color: $main-cl;
 						}
 					}
 				}
@@ -211,11 +245,11 @@
 				.links > a i {
 					float: right;
 					line-height: 2;
-					color: $orange-cl;
+					color: $main-cl;
 				}
 
 				.links > a:hover {
-					color: $orange-cl;
+					color: $main-cl;
 				}
 			}
 
@@ -225,7 +259,7 @@
 				width: 100%;
 				padding: 10px 0;
 				border-radius: unset;
-				background-color: $orange-cl;
+				background-color: $main-cl;
 				color: white;
 				text-align: center;
 			}
@@ -254,7 +288,7 @@
 			}
 
 			.username {
-				color: $orange-cl;
+				color: $main-cl;
 				margin-bottom: 10px;
 				text-transform: uppercase;
 				text-align: center;
@@ -276,12 +310,12 @@
 				text-align: center;
 
 				.money {
-					color: $orange-cl;
+					color: $main-cl;
 				}
 
 				.vip {
 					text-transform: uppercase;
-					color: $orange-cl;
+					color: $main-cl;
 					font-weight: bold;
 				}
 			}
@@ -299,12 +333,13 @@
 					left: 0;
 					top: 0;
 					bottom: 0;
-					background-color: $orange-cl;
+					background-color: $main-cl;
 					border-radius: 8px;
 				}
 			}
 
 			.menu-in-profile {
+				display: block;
 				list-style-type: none;
 				margin-bottom: 15px;
 				& > li:not(:last-child) {
@@ -321,7 +356,7 @@
 
 				& > li > a > i {
 					margin-right: 10px;
-					color: $orange-cl;
+					color: $main-cl;
 					font-size: 18px;
 					width: 20px;
 				}
@@ -352,133 +387,126 @@
 	/** Bottom*/
 	&__bottom {
 		width: 100%;
-		background: $white-cl;
+		min-height: 7rem;
+
+		background: #363636;
 		@include transition(transform $t2);
-	}
-	&__bottom-inner {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		padding: 1.3rem 0 4rem;
-		@include flex(row, space-between, center);
-		@include transition(padding $t2);
+		.container {
+			position: relative;
+			@include flex(row, space-between, center);
+		}
 	}
 	&__logo {
-		width: 100%;
-		@include flex(row, space-between, center);
-	}
-	&__browser {
-		@include flex(row, flex-start, center);
-		& div:first-child {
-			margin-right: 0.5rem;
+		position: relative;
+		padding-right: 6.4rem;
+		margin-bottom: -4rem;
+		height: 11rem;
+		.logo {
+			position: relative;
+			max-width: 11.2rem;
+			height: auto;
+		}
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			height: 100%;
+			pointer-events: none;
+		}
+		&::before {
+			right: 0;
+			width: 100vw;
+			background: $white-cl;
+			z-index: 0;
+		}
+		&::after {
+			right: -5.5rem;
+			width: 5.5rem;
+			background-image: url('../imgs/logo-bg.png');
+			background-repeat: no-repeat;
 		}
 	}
 	&__list {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100%;
-		background-color: $orange-cl;
-		@include br(999px);
-		@include transform(translateY(-50%));
+		@include flex(row, flex-start, center);
+		li {
+			&.active,
+			&:hover {
+				a {
+					color: $main-cl;
+				}
+			}
 
-		ul {
-			max-width: 80.4rem;
-			margin: 0 auto;
-			@include flex(row, space-between, center);
+			a {
+				padding: 2.2rem 1.5rem;
+				width: 100%;
+				height: 100%;
 
-			li {
-				width: calc(100% / 8);
+				font-size: 1.3rem;
+				font-weight: 500;
+				text-align: center;
+				color: $white-cl;
+				@include transition(color $t2);
+				@include leading(13, 24);
+				@include tracking(25);
+			}
 
-				&.active,
-				&:hover {
+			&.has-sub-menu {
+				position: relative;
+				.sub-menu {
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					width: 15rem;
+
+					background-color: $main-cl;
+					box-shadow: 0 2px 12px rgba($color: $bg-white-cl, $alpha: 0.2);
+
+					@include br(4px);
+					@include hidden;
+					@include transform(translateX(-50%));
+					@include transition(opacity 1s);
+					li {
+						width: 100%;
+					}
 					a {
-						color: $black-cl;
+						padding-top: 1.5rem;
+						padding-bottom: 1.5rem;
+						color: $white-cl;
+						&:hover {
+							color: #363636;
+						}
 					}
 				}
 
-				a {
-					display: inline-block;
-					padding: 2rem 0.6rem;
-					width: 100%;
+				&:hover .sub-menu {
+					@include visible;
+					@include transition(opacity 1s);
+				}
 
-					font-size: 1.4rem;
-					text-align: center;
+				&::after {
+					content: '\f107';
+					position: absolute;
+					font-weight: 900;
+					font-family: 'Font Awesome 5 Free';
+					top: 50%;
+					right: -0.3rem;
+					font-size: 1.5rem;
+					pointer-events: none;
 					color: $white-cl;
-					border-bottom: 1px solid transparent;
+					@include transform(translateY(-50%));
 					@include transition(color $t2);
 				}
 
-				&.has-sub-menu {
-					position: relative;
-					.sub-menu {
-						position: absolute;
-						top: 100%;
-						left: 50%;
-						width: 15rem;
-
-						flex-direction: column;
-
-						background-color: $orange-cl;
-						box-shadow: 0 2px 12px rgba($color: #000000, $alpha: 0.3);
-
-						@include br(4px);
-						@include hidden;
-						@include transform(translateX(-50%));
-						@include transition(opacity 1s);
-						li {
-							width: 100%;
-						}
-						a {
-							width: 100%;
-							color: $white-cl;
-							&:hover {
-								color: $black-cl;
-							}
-						}
-					}
-
-					&:hover .sub-menu {
-						@include visible;
-						@include transition(opacity 1s);
-					}
-
+				&:hover {
 					&::after {
-						content: '\f107';
-						position: absolute;
-						font-weight: 900;
-						font-family: 'Font Awesome 5 Free';
-						top: 50%;
-						right: -0.3rem;
-						font-size: 1.5rem;
-						pointer-events: none;
-						color: $white-cl;
-						@include transform(translateY(-50%));
-						@include transition(color $t2);
-					}
-
-					&:hover {
-						&::after {
-							color: $black-cl;
-						}
+						color: $text-black-cl;
 					}
 				}
 			}
 		}
 	}
 	/** Bottom - End*/
-
-	/** Header - Scroll*/
-	&.--scroll {
-		.header__top {
-			opacity: 0;
-		}
-		.header__bottom {
-			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-			@include transform(translateY(-4rem));
-		}
-	}
-	/** Header - Scroll - End*/
 
 	/** Header - Burger*/
 	&__burger {
@@ -563,83 +591,74 @@
 
 	/** Responsive */
 	@include desktop {
-		&__top {
-			ul {
-				li {
-					margin: 0 0.8rem 0 0;
-				}
-			}
+		&__search {
+			display: none;
 		}
-		&__social {
-			display: none !important;
+		&__logo {
+			padding-right: 0;
 		}
 	}
 
 	@include tablet {
-		& {
-			// display: none;
-		}
-		&__top {
-			padding-left: 1.5rem;
-			padding-right: 1.5rem;
-		}
-		&__info,
-		&__browser {
+		&__info {
 			display: none !important;
 		}
-		&__social,
 		&__burger {
-			display: flex !important;
+			display: block;
 		}
-		&__bottom-inner {
-			padding-bottom: 1.3rem;
+		&__logo {
+			div {
+				display: none;
+			}
 		}
 		&__list {
+			overflow-y: scroll;
+			@include custom-scrollbar();
+
 			position: fixed;
 			top: 0;
 			left: 0;
+			flex-direction: column;
 
 			width: 25rem;
-			height: 100%;
+			height: 100vh;
 
 			z-index: 750;
+			background: $main-cl;
 			@include br(0);
 			@include transform(translate(-250px, 0));
 			@include transition(transform $t2);
 
-			ul {
+			li {
+				padding: 0 1rem;
 				width: 100%;
-				flex-direction: column;
-				li {
-					padding: 0 1rem;
-					width: 100%;
+				a {
+					padding: 2rem 0;
+					text-align: left;
+				}
+				&:hover {
 					a {
-						text-align: left;
+						color: $text-cl;
 					}
 				}
+			}
 
-				li.has-sub-menu {
-					&::after {
-						top: 2.75rem;
-						right: 0.5rem;
-					}
-					.sub-menu {
-						position: static;
-
-						width: 100%;
-						background-color: transparent;
-						box-shadow: none;
-						@include transition(opacity 1s);
-						@include transform(translateX(0));
-						@include visible;
-						a {
-							padding: 1rem 0;
-						}
-					}
-					&.--open {
-						.sub-menu {
-							display: block;
-						}
+			li.has-sub-menu {
+				&::after {
+					top: 3rem;
+					right: 1rem;
+				}
+				.sub-menu {
+					position: static;
+					display: block;
+					width: 100%;
+					background-color: transparent;
+					box-shadow: none;
+					@include transform(translate(0, -100%));
+					@include visible;
+					a {
+						padding: 1rem 0;
+						color: $white-cl;
 					}
 				}
 			}
@@ -654,6 +673,14 @@
 			.acc-info:hover .status-desktop,
 			.acc-info:focus .status-desktop {
 				display: none;
+			}
+		}
+	}
+
+	@include mobile {
+		&__auth {
+			li {
+				margin-right: 2rem;
 			}
 		}
 	}
